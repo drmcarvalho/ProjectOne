@@ -59,6 +59,7 @@ object FrmProjectShow: TFrmProjectShow
     Size.Width = 497.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
+    OnKeyUp = edtSearchKeyUp
   end
   object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
     Left = 432

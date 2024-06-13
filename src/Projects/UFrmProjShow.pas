@@ -29,9 +29,11 @@ type
     procedure sgProjectsSelectCell(Sender: TObject; const ACol, ARow: Integer;
       var CanSelect: Boolean);
     procedure btnSearchClick(Sender: TObject);
+    procedure edtSearchKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
-    procedure SearchInProjectsAndFillGrid(term: string);
+    procedure SearchInProjectsAndFillGrid(const term: string);
   public
     { Public declarations }
   end;
@@ -57,6 +59,15 @@ begin
   SearchInProjectsAndFillGrid(edtSearch.Text);
 end;
 
+procedure TFrmProjectShow.edtSearchKeyUp(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if Key = vkReturn then
+  begin
+    SearchInProjectsAndFillGrid(edtSearch.Text);
+  end;
+end;
+
 procedure TFrmProjectShow.FormCreate(Sender: TObject);
 begin
   /// CONNECTION DATABASE SQLITE
@@ -77,7 +88,7 @@ begin
   projectIdSelected := 0;
 end;
 
-procedure TFrmProjectShow.SearchInProjectsAndFillGrid(term: string);
+procedure TFrmProjectShow.SearchInProjectsAndFillGrid(const term: string);
 var
   query: TFDQuery;
   I: integer;
