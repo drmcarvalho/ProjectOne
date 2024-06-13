@@ -66,13 +66,13 @@ begin
      Exit;
 
 
-
   status := 'EA';
   title  := edtTitle.Text;
   body   := memoBodyDescription.Text;
 
 
   /// ADD NEW PROJECT
+
   query := TFDQuery.Create(nil);
   try
     with query do
