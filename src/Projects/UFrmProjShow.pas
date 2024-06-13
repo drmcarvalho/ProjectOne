@@ -24,6 +24,7 @@ type
     scStatus: TStringColumn;
     btnSearch: TButton;
     edtSearch: TEdit;
+    btnUpdate: TButton;
     procedure btnNewProjectClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure sgProjectsSelectCell(Sender: TObject; const ACol, ARow: Integer;
@@ -31,32 +32,55 @@ type
     procedure btnSearchClick(Sender: TObject);
     procedure edtSearchKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
+    procedure btnUpdateClick(Sender: TObject);
   private
     { Private declarations }
     procedure SearchInProjectsAndFillGrid(const term: string);
+    procedure ShowModalFormNewProject;
   public
     { Public declarations }
   end;
 
 var
   FrmProjectShow: TFrmProjectShow;
-  projectIdSelected: Integer;
+  ProjectIdSelected: Integer;
 
 implementation
 
 {$R *.fmx}
 
 procedure TFrmProjectShow.btnNewProjectClick(Sender: TObject);
-var frmNewProject: TFrmProjRegister;
 begin
-  frmNewProject := TFrmProjRegister.Create(self);
-  frmNewProject.ShowModal;
-  FreeAndNil(frmNewProject);
+  ProjectIdSelected := 0;
+
+
+  ShowModalFormNewProject;
 end;
 
 procedure TFrmProjectShow.btnSearchClick(Sender: TObject);
 begin
   SearchInProjectsAndFillGrid(edtSearch.Text);
+end;
+
+procedure TFrmProjectShow.btnUpdateClick(Sender: TObject);
+begin
+  if ProjectIdSelected = 0 then
+  begin
+    ShowMessage('Por favor selecione um registro para alterar.');
+  end
+  else
+  begin
+    ShowModalFormNewProject;
+  end;
+end;
+
+procedure TFrmProjectShow.ShowModalFormNewProject;
+var frmNewProject: TFrmProjRegister;
+begin
+  frmNewProject := TFrmProjRegister.Create(self);
+  frmNewProject.ProjectIdSelected := ProjectIdSelected;
+  frmNewProject.ShowModal;
+  FreeAndNil(frmNewProject);
 end;
 
 procedure TFrmProjectShow.edtSearchKeyUp(Sender: TObject; var Key: Word;
@@ -82,10 +106,11 @@ begin
 
 
   /// GET AND POPULATE PROJECTS
+
   SearchInProjectsAndFillGrid('');
 
 
-  projectIdSelected := 0;
+  ProjectIdSelected := 0;
 end;
 
 procedure TFrmProjectShow.SearchInProjectsAndFillGrid(const term: string);
@@ -130,13 +155,15 @@ begin
     query.Close;
     query.DisposeOf;
   end;
-
 end;
 
 procedure TFrmProjectShow.sgProjectsSelectCell(Sender: TObject; const ACol,
   ARow: Integer; var CanSelect: Boolean);
 begin
-  projectIdSelected := StrToInt(sgProjects.Cells[0, ARow]);
+  if ARow > -1 then
+  begin
+    ProjectIdSelected := StrToInt(sgProjects.Cells[0, ARow]);
+  end;
 end;
 
 end.

@@ -32,16 +32,19 @@ object FrmProjectShow: TFrmProjectShow
     Viewport.Width = 804.000000000000000000
     Viewport.Height = 367.000000000000000000
     object icProjectId: TIntegerColumn
+      Locked = True
       Header = 'C'#243'digo'
       ReadOnly = True
     end
     object scTitle: TStringColumn
       Header = 'T'#237'tulo'
       ReadOnly = True
+      Size.Width = 572.000000000000000000
     end
     object scStatus: TStringColumn
       Header = 'Status'
       ReadOnly = True
+      Size.Width = 119.000000000000000000
     end
   end
   object btnSearch: TButton
@@ -60,6 +63,13 @@ object FrmProjectShow: TFrmProjectShow
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     OnKeyUp = edtSearchKeyUp
+  end
+  object btnUpdate: TButton
+    Position.X = 632.000000000000000000
+    Position.Y = 40.000000000000000000
+    TabOrder = 8
+    Text = 'Atualizar'
+    OnClick = btnUpdateClick
   end
   object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
     Left = 432

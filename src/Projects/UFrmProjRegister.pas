@@ -10,7 +10,7 @@ uses
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.FMXUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat,
   FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.DApt, Data.DB, FireDAC.Comp.Client,
-  FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, UFunctions;
+  FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, UFunctions, FMX.ListBox;
 
 type
   TFrmProjRegister = class(TForm)
@@ -22,6 +22,8 @@ type
     Label2: TLabel;
     edtTitle: TEdit;
     memoBodyDescription: TMemo;
+    ComboBox1: TComboBox;
+    Label3: TLabel;
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -30,6 +32,7 @@ type
     function IsFieldsValid: Boolean;
   public
     { Public declarations }
+      ProjectIdSelected: integer;
   end;
 
 var
@@ -41,16 +44,20 @@ implementation
 
 procedure TFrmProjRegister.btnCancelClick(Sender: TObject);
 begin
+  if ProjectIdSelected > 0 then
+    ShowMessage('Update')
+  else
+    ShowMessage('Insert');
   Close;
 end;
 
 procedure TFrmProjRegister.btnSaveClick(Sender: TObject);
-var 
+var
   query: TFDQuery;
   title: string;
   status: string;
   body: string;
-begin  
+begin
   edtTitle.Text            := DeleteRepeatedSpaces(edtTitle.Text);
   memoBodyDescription.Text := DeleteRepeatedSpaces(memoBodyDescription.Text);
 
@@ -58,18 +65,18 @@ begin
   if not IsFieldsValid then
      Exit;
 
-  
-  
+
+
   status := 'EA';
   title  := edtTitle.Text;
   body   := memoBodyDescription.Text;
 
-  
+
   /// ADD NEW PROJECT
   query := TFDQuery.Create(nil);
   try
     with query do
-    begin 
+    begin
       Connection := FDConnection;
       SQL.Text   := 'INSERT INTO Projetos (Titulo, Corpo, Status) VALUES (:Titulo, :Corpo, :Status)';
       Params.ParamByName('Titulo').AsString := title;
