@@ -8,8 +8,6 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls, UFrmTaskShow, UFrmProjShow,
   UFrmReqShow;
 
-
-
 type
   TFormProjectOne = class(TForm)
     btnProjetos: TButton;
