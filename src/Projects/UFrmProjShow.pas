@@ -10,8 +10,8 @@ uses
   FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.Phys.SQLiteDef, FireDAC.Stan.Intf,
   FireDAC.Phys, FireDAC.Phys.SQLite, FireDAC.Stan.Option, FireDAC.Stan.Error,
   FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
-  FireDAC.Stan.Async, FireDAC.FMXUI.Wait, FireDAC.DApt, Data.DB, FireDAC.Comp.Client,
-  UFunctions, FMX.Edit;
+  FireDAC.Stan.Async, FireDAC.FMXUI.Wait, FireDAC.DApt, FireDAC.Stan.Param,
+  Data.DB, FireDAC.Comp.Client, UFunctions, FMX.Edit;
 
 type
   TFrmProjectShow = class(TForm)

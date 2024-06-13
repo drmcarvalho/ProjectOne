@@ -9,8 +9,9 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.FMXUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat,
-  FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.DApt, Data.DB, FireDAC.Comp.Client,
-  FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, UFunctions, FMX.ListBox;
+  FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.DApt, FireDAC.Stan.Param,
+  Data.DB, FireDAC.Comp.Client, FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
+  UFunctions, FMX.ListBox;
 
 type
   TFrmProjRegister = class(TForm)

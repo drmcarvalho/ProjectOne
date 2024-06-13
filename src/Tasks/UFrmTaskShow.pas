@@ -17,7 +17,6 @@ type
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
-    Tasks: array of TValue;
   public
     { Public declarations }
   end;

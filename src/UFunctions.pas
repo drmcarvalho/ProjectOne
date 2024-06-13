@@ -7,8 +7,14 @@ uses
 
 function DeleteRepeatedSpaces(const OldText: string): string;
 function ProjectStatusToSpellOut(const status: string): string;
+function PathOfExecutable: string;
 
 implementation
+
+function PathOfExecutable: string;
+begin
+  Result := String(ExtractFilePath(AnsiString(ParamStr(0))));
+end;
 
 function DeleteRepeatedSpaces(const OldText: string): string;
 var
@@ -36,7 +42,7 @@ end;
 
 function ProjectStatusToSpellOut(const status: string): string;
 begin
-  case IndexStr(status, ['EA', 'C', 'PC']) of
+  case IndexStr(AnsiString(status), [AnsiString('EA'), AnsiString('C'), AnsiString('PC')]) of
     0: Result := 'Em andamento';
     1: Result := 'Cancelado';
     2: Result := 'Projeto consluito';

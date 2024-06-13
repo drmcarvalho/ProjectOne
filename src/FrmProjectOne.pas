@@ -6,17 +6,18 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, UFrmTaskShow, UFrmProjShow,
-  UFrmReqShow;
+  UFrmReqShow, UFunctions;
 
 type
   TFormProjectOne = class(TForm)
     btnProjetos: TButton;
     btnTarefas: TButton;
     btnRequisitos: TButton;
-    btnAnexos: TButton;
+    btnAttachments: TButton;
     procedure btnTarefasClick(Sender: TObject);
     procedure btnProjetosClick(Sender: TObject);
     procedure btnRequisitosClick(Sender: TObject);
+    procedure btnAttachmentsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,6 +30,11 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFormProjectOne.btnAttachmentsClick(Sender: TObject);
+begin
+  ShowMessage(PathOfExecutable);
+end;
 
 procedure TFormProjectOne.btnProjetosClick(Sender: TObject);
 var frmProjectShow: TFrmProjectShow;

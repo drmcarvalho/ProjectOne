@@ -39,7 +39,7 @@ object FormProjectOne: TFormProjectOne
     Text = 'Requisitos'
     OnClick = btnRequisitosClick
   end
-  object btnAnexos: TButton
+  object btnAttachments: TButton
     Position.X = 440.000000000000000000
     Position.Y = 152.000000000000000000
     Size.Width = 97.000000000000000000
@@ -47,5 +47,6 @@ object FormProjectOne: TFormProjectOne
     Size.PlatformDefault = False
     TabOrder = 3
     Text = 'Anexos'
+    OnClick = btnAttachmentsClick
   end
 end
