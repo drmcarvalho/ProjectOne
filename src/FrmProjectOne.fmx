@@ -1,0 +1,51 @@
+object FormProjectOne: TFormProjectOne
+  Left = 0
+  Top = 0
+  Caption = 'ProjectOne'
+  ClientHeight = 382
+  ClientWidth = 568
+  Position = MainFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object btnProjetos: TButton
+    Position.X = 32.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Projetos'
+    OnClick = btnProjetosClick
+  end
+  object btnTarefas: TButton
+    Position.X = 168.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Tarefas'
+    OnClick = btnTarefasClick
+  end
+  object btnRequisitos: TButton
+    Position.X = 312.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Requisitos'
+    OnClick = btnRequisitosClick
+  end
+  object btnAnexos: TButton
+    Position.X = 440.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Anexos'
+  end
+end

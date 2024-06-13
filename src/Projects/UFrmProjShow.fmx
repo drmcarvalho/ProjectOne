@@ -1,0 +1,71 @@
+object FrmProjectShow: TFrmProjectShow
+  Left = 0
+  Top = 0
+  Caption = 'Projetos'
+  ClientHeight = 480
+  ClientWidth = 840
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object btnNewProject: TButton
+    Position.X = 720.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 112.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Novo projeto'
+    OnClick = btnNewProjectClick
+  end
+  object sgProjects: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 824.000000000000000000
+    Size.Height = 392.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    OnSelectCell = sgProjectsSelectCell
+    Viewport.Width = 804.000000000000000000
+    Viewport.Height = 367.000000000000000000
+    object icProjectId: TIntegerColumn
+      Header = 'C'#243'digo'
+      ReadOnly = True
+    end
+    object scTitle: TStringColumn
+      Header = 'T'#237'tulo'
+      ReadOnly = True
+    end
+    object scStatus: TStringColumn
+      Header = 'Status'
+      ReadOnly = True
+    end
+  end
+  object btnSearch: TButton
+    Position.X = 8.000000000000000000
+    Position.Y = 40.000000000000000000
+    TabOrder = 4
+    Text = 'Pesquisar'
+    OnClick = btnSearchClick
+  end
+  object edtSearch: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    Position.X = 96.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 497.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
+    Left = 432
+    Top = 160
+  end
+  object FDConnection: TFDConnection
+    Left = 536
+    Top = 160
+  end
+end
