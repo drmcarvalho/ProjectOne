@@ -144,7 +144,6 @@ end;
 
 procedure TFrmProjRegister.FormShow(Sender: TObject);
 begin
-
   if ProjectIdSelected > 0 then
   begin
     FindProjectAndFillFields;
