@@ -28,9 +28,11 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
     function IsFieldsValid: Boolean;
+    procedure FindProjectAndFillFields;
   public
     { Public declarations }
       ProjectIdSelected: integer;
@@ -45,10 +47,6 @@ implementation
 
 procedure TFrmProjRegister.btnCancelClick(Sender: TObject);
 begin
-  if ProjectIdSelected > 0 then
-    ShowMessage('Update')
-  else
-    ShowMessage('Insert');
   Close;
 end;
 
@@ -79,21 +77,56 @@ begin
     with query do
     begin
       Connection := FDConnection;
-      SQL.Text   := 'INSERT INTO Projetos (Titulo, Corpo, Status) VALUES (:Titulo, :Corpo, :Status)';
+      if ProjectIdSelected > 0 then
+      begin
+        SQL.Text := 'UPDATE Projetos SET Titulo = :Titulo, Corpo = :Corpo, Status = :Status WHERE Id = :ProjectId';
+        Params.ParamByName('ProjectId').AsInteger := ProjectIdSelected;
+      end
+      else
+      begin
+        SQL.Text := 'INSERT INTO Projetos (Titulo, Corpo, Status) VALUES (:Titulo, :Corpo, :Status)';
+      end;
       Params.ParamByName('Titulo').AsString := title;
       Params.ParamByName('Corpo').AsString  := body;
       Params.ParamByName('Status').AsString := status;
       ExecSQL;
     end;
   finally
-    query.Free;
+    query.Close;
+    query.DisposeOf;
   end;
-  
-  
-  ShowMessage('Projeto cadastrado com sucesso!');
 
-  
+
+  ShowMessage('Projeto foi salvo com sucesso!');
+
+
   Close;
+end;
+
+procedure TFrmProjRegister.FindProjectAndFillFields;
+var query: TFDQuery;
+begin
+  query := TFDQuery.Create(nil);
+  try
+    with query do
+    begin
+      Connection := FDConnection;
+      SQL.Clear;
+      SQL.Text := 'SELECT Titulo, Corpo, Status FROM Projetos WHERE Id = :ProjectId';
+      Params.ParamByName('ProjectId').AsInteger := ProjectIdSelected;
+      Prepare;
+      Open;
+      First;
+
+
+      edtTitle.Text            := FieldByName('Titulo').AsString;
+      memoBodyDescription.Text := FieldByName('Corpo').AsString;
+    end;
+  finally
+    query.Close;
+    query.DisposeOf;
+  end;
+
 end;
 
 procedure TFrmProjRegister.FormCreate(Sender: TObject);
@@ -106,6 +139,15 @@ begin
     FDConnection.Open;
   except on E: EDatabaseError do
     ShowMessage('Error: ' + E.Message)
+  end;
+end;
+
+procedure TFrmProjRegister.FormShow(Sender: TObject);
+begin
+
+  if ProjectIdSelected > 0 then
+  begin
+    FindProjectAndFillFields;
   end;
 end;
 

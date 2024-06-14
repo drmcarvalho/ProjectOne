@@ -134,21 +134,17 @@ begin
       Open;
 
 
-      sgProjects.RowCount := query.RecordCount;
-
-
+      sgProjects.RowCount := RecordCount;
       I := 0;
-      while not query.Eof do
+      while not Eof do
       begin
-        sgProjects.Cells[0, I] := query.FieldByName('Id').AsString;
-        sgProjects.Cells[1, I] := query.FieldByName('Titulo').AsString;
-        sgProjects.Cells[2, I] := ProjectStatusToSpellOut(query.FieldByName('Status').AsString);
+        sgProjects.Cells[0, I] := FieldByName('Id').AsString;
+        sgProjects.Cells[1, I] := FieldByName('Titulo').AsString;
+        sgProjects.Cells[2, I] := ProjectStatusToSpellOut(FieldByName('Status').AsString);
 
 
         Inc(I);
-
-
-        query.Next;
+        Next;
       end;
     end;
   finally
