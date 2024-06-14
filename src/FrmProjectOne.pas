@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, UFrmTaskShow, UFrmProjShow,
-  UFrmReqShow, UFunctions;
+  UFrmReqShow, UFunctions, UTranslate;
 
 type
   TFormProjectOne = class(TForm)
@@ -18,6 +18,7 @@ type
     procedure btnProjetosClick(Sender: TObject);
     procedure btnRequisitosClick(Sender: TObject);
     procedure btnAttachmentsClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,7 +34,8 @@ implementation
 
 procedure TFormProjectOne.btnAttachmentsClick(Sender: TObject);
 begin
-  ShowMessage(PathOfExecutable);
+  //ShowMessage(PathOfExecutable);
+  ShowMessage(_t('', PtSelectRecord));
 end;
 
 procedure TFormProjectOne.btnProjetosClick(Sender: TObject);
@@ -58,6 +60,11 @@ begin
   frmTaskShow := TFrmTaskShow.Create(self);
   frmTaskShow.ShowModal;
   FreeAndNil(frmTaskShow);
+end;
+
+procedure TFormProjectOne.FormCreate(Sender: TObject);
+begin
+  InitTranslate;
 end;
 
 end.

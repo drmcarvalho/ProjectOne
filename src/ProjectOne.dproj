@@ -217,6 +217,7 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UFunctions.pas"/>
+        <DCCReference Include="UTranslate.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

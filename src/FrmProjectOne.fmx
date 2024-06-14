@@ -8,6 +8,7 @@ object FormProjectOne: TFormProjectOne
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object btnProjetos: TButton
     Position.X = 32.000000000000000000

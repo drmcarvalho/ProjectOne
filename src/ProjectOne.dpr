@@ -11,7 +11,8 @@ uses
   UAttachments in 'Attachments\UAttachments.pas',
   UFrmTaskRegister in 'Tasks\UFrmTaskRegister.pas' {Form5},
   UFrmProjShow in 'Projects\UFrmProjShow.pas' {FrmProjectShow},
-  UFunctions in 'UFunctions.pas';
+  UFunctions in 'UFunctions.pas',
+  UTranslate in 'UTranslate.pas';
 
 {$R *.res}
 
