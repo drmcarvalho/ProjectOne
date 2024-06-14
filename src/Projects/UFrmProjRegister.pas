@@ -70,7 +70,7 @@ begin
   body   := memoBodyDescription.Text;
 
 
-  /// ADD NEW PROJECT
+  /// ADD NEW OR UPDATE PROJECT
 
   query := TFDQuery.Create(nil);
   try
