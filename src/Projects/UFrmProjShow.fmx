@@ -1,6 +1,7 @@
 object FrmProjectShow: TFrmProjectShow
   Left = 0
   Top = 0
+  BorderStyle = Single
   Caption = 'Projetos'
   ClientHeight = 480
   ClientWidth = 840

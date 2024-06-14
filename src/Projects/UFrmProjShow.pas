@@ -94,7 +94,7 @@ end;
 
 procedure TFrmProjectShow.FormCreate(Sender: TObject);
 begin
-  /// CONNECTION DATABASE SQLITE
+  /// CONNECTION TO DATABASE SQLITE
 
   FDConnection.DriverName                := 'SQLITE';
   FDConnection.Params.Values['Database'] := 'D:\projetos\delphi\ProjectOne\Database\projectone.db';
