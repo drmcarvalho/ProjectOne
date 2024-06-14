@@ -5,7 +5,7 @@ uses
   FMX.Forms,
   FrmProjectOne in 'FrmProjectOne.pas' {FormProjectOne},
   UFrmReqShow in 'Requirements\UFrmReqShow.pas' {FrmReqShow},
-  UFrmReqRegister in 'Requirements\UFrmReqRegister.pas' {Form2},
+  UFrmReqRegister in 'Requirements\UFrmReqRegister.pas' {FrmReqRegister},
   UFrmTaskShow in 'Tasks\UFrmTaskShow.pas' {FrmTaskShow},
   UFrmProjRegister in 'Projects\UFrmProjRegister.pas' {FrmProjRegister},
   UAttachments in 'Attachments\UAttachments.pas',
@@ -20,7 +20,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TFormProjectOne, FormProjectOne);
   Application.CreateForm(TFrmReqShow, FrmReqShow);
-  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TFrmReqRegister, FrmReqRegister);
   Application.CreateForm(TFrmTaskShow, FrmTaskShow);
   Application.CreateForm(TFrmProjRegister, FrmProjRegister);
   Application.CreateForm(TForm5, Form5);

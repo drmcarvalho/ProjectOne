@@ -141,8 +141,6 @@ begin
         sgProjects.Cells[0, I] := FieldByName('Id').AsString;
         sgProjects.Cells[1, I] := FieldByName('Titulo').AsString;
         sgProjects.Cells[2, I] := ProjectStatusToSpellOut(FieldByName('Status').AsString);
-
-
         Inc(I);
         Next;
       end;

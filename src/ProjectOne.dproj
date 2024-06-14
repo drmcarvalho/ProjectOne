@@ -196,7 +196,7 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Requirements\UFrmReqRegister.pas">
-            <Form>Form2</Form>
+            <Form>FrmReqRegister</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Tasks\UFrmTaskShow.pas">

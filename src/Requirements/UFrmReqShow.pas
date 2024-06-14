@@ -10,7 +10,7 @@ uses
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.FMXUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat,
   FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, Data.DB, FireDAC.Comp.Client,
-  System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid;
+  System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid, UFrmReqRegister;
 
 type
   TFrmReqShow = class(TForm)
@@ -30,9 +30,11 @@ type
     scStatus: TStringColumn;
     procedure FormCreate(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
+    procedure btnNewRequerimentClick(Sender: TObject);
   private
     { Private declarations }
     procedure SearchInRequerimentsAndFillGrid(const term: string);
+    procedure ShowModalFormNewReq;
   public
     { Public declarations }
   end;
@@ -43,6 +45,19 @@ var
 implementation
 
 {$R *.fmx}
+
+procedure TFrmReqShow.btnNewRequerimentClick(Sender: TObject);
+begin
+  ShowModalFormNewReq;
+end;
+
+procedure TFrmReqShow.ShowModalFormNewReq;
+var frmNewReq: TFrmReqRegister;
+begin
+  frmNewReq := TFrmReqRegister.Create(self);
+  frmNewReq.ShowModal;
+  FreeAndNil(frmNewReq);
+end;
 
 procedure TFrmReqShow.btnSearchClick(Sender: TObject);
 begin
@@ -61,6 +76,8 @@ begin
     ShowMessage('Error: ' + E.Message)
   end;
 
+
+  /// GET REQUERIMENTS AND FILL GRID
 
   SearchInRequerimentsAndFillGrid('');
 end;
@@ -98,8 +115,6 @@ begin
         sgRequeriments.Cells[4, I] := FieldByName('Tipo').AsString;
         sgRequeriments.Cells[5, I] := FieldByName('Ativo').AsString;
         sgRequeriments.Cells[5, I] := FieldByName('Status').AsString;
-
-
         Inc(I);
         Next;
       end;

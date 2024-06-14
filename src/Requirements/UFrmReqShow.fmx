@@ -40,6 +40,7 @@ object FrmReqShow: TFrmReqShow
     Size.PlatformDefault = False
     TabOrder = 0
     Text = 'Novo requisito'
+    OnClick = btnNewRequerimentClick
   end
   object sgRequeriments: TStringGrid
     CanFocus = True
@@ -50,8 +51,8 @@ object FrmReqShow: TFrmReqShow
     Size.Height = 369.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 11
-    Viewport.Width = 1029.000000000000000000
-    Viewport.Height = 344.000000000000000000
+    Viewport.Width = 1049.000000000000000000
+    Viewport.Height = 369.000000000000000000
     object icRequerimentId: TIntegerColumn
       Header = 'C'#243'digo'
       ReadOnly = True
