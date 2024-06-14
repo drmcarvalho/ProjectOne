@@ -60,8 +60,7 @@ object FrmProjRegister: TFrmProjRegister
     Viewport.Width = 604.000000000000000000
     Viewport.Height = 267.000000000000000000
   end
-  object ComboBox1: TComboBox
-    Enabled = False
+  object cbStatus: TComboBox
     Position.X = 368.000000000000000000
     Position.Y = 73.000000000000000000
     Size.Width = 241.000000000000000000

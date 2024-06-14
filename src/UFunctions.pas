@@ -45,7 +45,7 @@ begin
   case IndexStr(AnsiString(status), [AnsiString('EA'), AnsiString('C'), AnsiString('PC')]) of
     0: Result := 'Em andamento';
     1: Result := 'Cancelado';
-    2: Result := 'Projeto consluito';
+    2: Result := 'Projeto concluído';
   else
     Result := 'Status inderteminado';
   end

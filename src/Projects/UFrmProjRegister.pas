@@ -23,7 +23,7 @@ type
     Label2: TLabel;
     edtTitle: TEdit;
     memoBodyDescription: TMemo;
-    ComboBox1: TComboBox;
+    cbStatus: TComboBox;
     Label3: TLabel;
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
@@ -65,7 +65,14 @@ begin
      Exit;
 
 
-  status := 'EA';
+  if cbStatus.ItemIndex >= 0 then
+  begin
+    status := cbStatus.Items.KeyNames[cbStatus.ItemIndex]
+  end
+  else
+  begin
+    status := 'EA';
+  end;
   title  := edtTitle.Text;
   body   := memoBodyDescription.Text;
 
@@ -121,6 +128,7 @@ begin
 
       edtTitle.Text            := FieldByName('Titulo').AsString;
       memoBodyDescription.Text := FieldByName('Corpo').AsString;
+      cbStatus.ItemIndex       := cbStatus.Items.IndexOfName(FieldByName('Status').AsString);
     end;
   finally
     query.Close;
@@ -140,6 +148,12 @@ begin
   except on E: EDatabaseError do
     ShowMessage('Error: ' + E.Message)
   end;
+
+
+  cbStatus.Items.AddPair('EA', ProjectStatusToSpellOut('EA'));
+  cbStatus.Items.AddPair('C', ProjectStatusToSpellOut('C'));
+  cbStatus.Items.AddPair('PC', ProjectStatusToSpellOut('PC'));
+  cbStatus.ItemIndex := 0;
 end;
 
 procedure TFrmProjRegister.FormShow(Sender: TObject);
