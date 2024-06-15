@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.FMXUI.Wait,
   FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat,
   FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, Data.DB, FireDAC.Comp.Client,
-  FireDAC.DApt;
+  FireDAC.DApt, UConstants;
 
 type
   TFormProjectOne = class(TForm)
@@ -45,8 +45,8 @@ var query: TFDQuery;
 begin
   /// CONNECTION DATABASE SQLITE
 
-  FDConnection.DriverName                := 'SQLITE';
-  FDConnection.Params.Values['Database'] := PathOfExecutable + 'projectone.db';
+  FDConnection.DriverName                := cDBDriver;
+  FDConnection.Params.Values['Database'] := PathOfExecutable + cSQLiteFile;
   try
     FDConnection.Open;
   except on E: EDatabaseError do

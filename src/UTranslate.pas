@@ -6,7 +6,7 @@ uses
   System.Generics.Collections;
 
 var
-  DictLanguage: TDictionary<string, string>;
+  DictLangPtToEn: TDictionary<string, string>;
 
 const
   /// Langs
@@ -38,17 +38,17 @@ begin
 
   if cLang = EnUs then
   begin
-      if DictLanguage.ContainsKey(cPhrase) then
+      if DictLangPtToEn.ContainsKey(cPhrase) then
       begin
-         Result := DictLanguage[cPhrase];
+         Result := DictLangPtToEn[cPhrase];
       end;
   end;
 end;
 
 procedure InitTranslate;
 begin
-  DictLanguage := TDictionary<string, string>.Create;
-  with DictLanguage do
+  DictLangPtToEn := TDictionary<string, string>.Create;
+  with DictLangPtToEn do
   begin
     Add(PtSelectRecord, EnSelectRecord);
     Add(PtFieldTitleRequerid, EnFieldTitleRequerid);
