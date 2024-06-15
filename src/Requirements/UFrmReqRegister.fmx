@@ -7,10 +7,11 @@ object FrmReqRegister: TFrmReqRegister
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object Label1: TLabel
-    Position.X = 556.000000000000000000
-    Position.Y = 47.000000000000000000
+    Position.X = 241.000000000000000000
+    Position.Y = 112.000000000000000000
     Text = 'Projeto'
     TabOrder = 4
   end
@@ -36,8 +37,8 @@ object FrmReqRegister: TFrmReqRegister
     TabOrder = 5
   end
   object Label7: TLabel
-    Position.X = 411.000000000000000000
-    Position.Y = 47.000000000000000000
+    Position.X = 612.000000000000000000
+    Position.Y = 112.000000000000000000
     Size.Width = 48.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
@@ -45,8 +46,8 @@ object FrmReqRegister: TFrmReqRegister
     TabOrder = 6
   end
   object cbStatus: TComboBox
-    Position.X = 411.000000000000000000
-    Position.Y = 72.000000000000000000
+    Position.X = 612.000000000000000000
+    Position.Y = 137.000000000000000000
     Size.Width = 137.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -57,14 +58,14 @@ object FrmReqRegister: TFrmReqRegister
     TabOrder = 8
     Position.X = 8.000000000000000000
     Position.Y = 72.000000000000000000
-    Size.Width = 395.000000000000000000
+    Size.Width = 741.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
   end
   object cbProject: TComboBox
-    Position.X = 556.000000000000000000
-    Position.Y = 72.000000000000000000
-    Size.Width = 193.000000000000000000
+    Position.X = 241.000000000000000000
+    Position.Y = 137.000000000000000000
+    Size.Width = 363.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 9
@@ -72,7 +73,7 @@ object FrmReqRegister: TFrmReqRegister
   object cbTypeReq: TComboBox
     Position.X = 8.000000000000000000
     Position.Y = 137.000000000000000000
-    Size.Width = 169.000000000000000000
+    Size.Width = 225.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 10
@@ -100,5 +101,13 @@ object FrmReqRegister: TFrmReqRegister
     Position.Y = 464.000000000000000000
     TabOrder = 1
     Text = 'Cancelar'
+  end
+  object FDConnection: TFDConnection
+    Left = 520
+    Top = 48
+  end
+  object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
+    Left = 656
+    Top = 48
   end
 end

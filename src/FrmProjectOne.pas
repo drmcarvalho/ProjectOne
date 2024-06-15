@@ -73,7 +73,8 @@ begin
       SQL.Add('	"Titulo" TEXT NOT NULL,');
       SQL.Add('	"Descricao" TEXT NULL DEFAULT NULL,');
       SQL.Add('	"Ativo" TINYINT NOT NULL,');
-      SQL.Add('	"Tipo" TEXT NOT NULL, "Status" TEXT NOT NULL DEFAULT "EA",');
+      SQL.Add('	"Tipo" TEXT NOT NULL,');
+      SQL.Add(' "Status" TEXT NOT NULL DEFAULT "EA",');
       SQL.Add('	PRIMARY KEY ("Id"),');
       SQL.Add('	CONSTRAINT "fk_projeto_requisito" FOREIGN KEY ("ProjetoId") REFERENCES "Projetos" ("Id") ON UPDATE CASCADE ON DELETE CASCADE');
       SQL.Add(');');

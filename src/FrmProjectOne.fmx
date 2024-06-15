@@ -21,7 +21,7 @@ object FormProjectOne: TFormProjectOne
     OnClick = btnProjetosClick
   end
   object btnTarefas: TButton
-    Position.X = 168.000000000000000000
+    Position.X = 304.000000000000000000
     Position.Y = 152.000000000000000000
     Size.Width = 105.000000000000000000
     Size.Height = 41.000000000000000000
@@ -31,7 +31,7 @@ object FormProjectOne: TFormProjectOne
     OnClick = btnTarefasClick
   end
   object btnRequisitos: TButton
-    Position.X = 312.000000000000000000
+    Position.X = 168.000000000000000000
     Position.Y = 152.000000000000000000
     Size.Width = 97.000000000000000000
     Size.Height = 41.000000000000000000

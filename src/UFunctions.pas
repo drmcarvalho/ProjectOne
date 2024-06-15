@@ -7,9 +7,36 @@ uses
 
 function DeleteRepeatedSpaces(const OldText: string): string;
 function ProjectStatusToSpellOut(const status: string): string;
+function RequerimentTypeToSpellOut(const vType: string): string;
+function RequerimentStatusToSpellOut(const status: string): string;
 function PathOfExecutable: string;
 
 implementation
+
+function RequerimentStatusToSpellOut(const status: string): string;
+begin
+  case IndexStr(AnsiString(status), [AnsiString('EA'), AnsiString('C'),
+      AnsiString('I'), AnsiString('EAA'), AnsiString('B')]) of
+    0: Result := 'Em andamento';
+    1: Result := 'Cancelado';
+    2: Result := 'Implementado';
+    3: Result := 'Em analise';
+    4: Result := 'Bloqueado';
+  else
+    Result := 'Status inderteminado';
+  end
+end;
+
+function RequerimentTypeToSpellOut(const vType: string): string;
+begin
+  case IndexStr(AnsiString(vType), [AnsiString('RF'), AnsiString('RNF')]) of
+    0: Result := 'Requisito funcional';
+    1: Result := 'Requisito não funcional';
+  else
+    Result := 'Tipo inderteminado';
+  end
+end;
+
 
 function PathOfExecutable: string;
 begin

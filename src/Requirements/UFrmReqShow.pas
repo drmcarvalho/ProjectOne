@@ -114,7 +114,7 @@ begin
         sgRequeriments.Cells[3, I] := FieldByName('Projeto').AsString;
         sgRequeriments.Cells[4, I] := FieldByName('Tipo').AsString;
         sgRequeriments.Cells[5, I] := FieldByName('Ativo').AsString;
-        sgRequeriments.Cells[5, I] := FieldByName('Status').AsString;
+        sgRequeriments.Cells[6, I] := FieldByName('Status').AsString;
         Inc(I);
         Next;
       end;

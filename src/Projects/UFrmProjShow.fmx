@@ -21,6 +21,7 @@ object FrmProjectShow: TFrmProjectShow
     OnClick = btnNewProjectClick
   end
   object sgProjects: TStringGrid
+    Anchors = [akLeft, akTop, akRight, akBottom]
     CanFocus = True
     ClipChildren = True
     Position.X = 8.000000000000000000
