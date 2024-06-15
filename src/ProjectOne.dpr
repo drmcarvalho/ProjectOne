@@ -12,7 +12,8 @@ uses
   UFrmTaskRegister in 'Tasks\UFrmTaskRegister.pas' {Form5},
   UFrmProjShow in 'Projects\UFrmProjShow.pas' {FrmProjectShow},
   UFunctions in 'UFunctions.pas',
-  UTranslate in 'UTranslate.pas';
+  UTranslate in 'UTranslate.pas',
+  UConstants in 'UConstants.pas';
 
 {$R *.res}
 
