@@ -50,4 +50,12 @@ object FormProjectOne: TFormProjectOne
     Text = 'Anexos'
     OnClick = btnAttachmentsClick
   end
+  object FDConnection: TFDConnection
+    Left = 480
+    Top = 320
+  end
+  object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
+    Left = 480
+    Top = 272
+  end
 end
