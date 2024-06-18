@@ -15,12 +15,14 @@ uses
 
 type
   TFormProjectOne = class(TForm)
-    btnProjetos: TButton;
-    btnTarefas: TButton;
-    btnRequisitos: TButton;
-    btnAttachments: TButton;
     FDConnection: TFDConnection;
     FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
+    Expander1: TExpander;
+    btnProjetos: TButton;
+    btnRequisitos: TButton;
+    btnTarefas: TButton;
+    btnAttachments: TButton;
+    Label1: TLabel;
     procedure btnTarefasClick(Sender: TObject);
     procedure btnProjetosClick(Sender: TObject);
     procedure btnRequisitosClick(Sender: TObject);

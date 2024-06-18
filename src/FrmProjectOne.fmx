@@ -1,61 +1,84 @@
 object FormProjectOne: TFormProjectOne
   Left = 0
   Top = 0
-  Caption = 'ProjectOne'
-  ClientHeight = 382
-  ClientWidth = 568
+  BorderStyle = Single
+  Caption = 
+    'ProjectOne - Aplica'#231#227'o para Gerenciamento de Projetos de Softwar' +
+    'e'
+  ClientHeight = 658
+  ClientWidth = 999
   Position = MainFormCenter
+  StyleLookup = 'pushpanel'
+  WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object btnProjetos: TButton
-    Position.X = 32.000000000000000000
-    Position.Y = 152.000000000000000000
-    Size.Width = 97.000000000000000000
-    Size.Height = 41.000000000000000000
+  object Expander1: TExpander
+    Anchors = [akLeft, akTop, akBottom]
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    ShowCheck = False
+    Size.Width = 177.000000000000000000
+    Size.Height = 642.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 0
-    Text = 'Projetos'
-    OnClick = btnProjetosClick
-  end
-  object btnTarefas: TButton
-    Position.X = 304.000000000000000000
-    Position.Y = 152.000000000000000000
-    Size.Width = 105.000000000000000000
-    Size.Height = 41.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    Text = 'Tarefas'
-    OnClick = btnTarefasClick
-  end
-  object btnRequisitos: TButton
-    Position.X = 168.000000000000000000
-    Position.Y = 152.000000000000000000
-    Size.Width = 97.000000000000000000
-    Size.Height = 41.000000000000000000
-    Size.PlatformDefault = False
+    Text = 'Menu'
     TabOrder = 2
-    Text = 'Requisitos'
-    OnClick = btnRequisitosClick
-  end
-  object btnAttachments: TButton
-    Position.X = 440.000000000000000000
-    Position.Y = 152.000000000000000000
-    Size.Width = 97.000000000000000000
-    Size.Height = 41.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 3
-    Text = 'Anexos'
-    OnClick = btnAttachmentsClick
+    ContentSize = '617'
+    object btnProjetos: TButton
+      Position.X = 7.000000000000000000
+      Position.Y = 40.000000000000000000
+      Size.Width = 162.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Projetos'
+      OnClick = btnProjetosClick
+    end
+    object btnRequisitos: TButton
+      Position.X = 7.000000000000000000
+      Position.Y = 87.000000000000000000
+      Size.Width = 162.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Requisitos'
+      OnClick = btnRequisitosClick
+    end
+    object btnTarefas: TButton
+      Position.X = 7.000000000000000000
+      Position.Y = 136.000000000000000000
+      Size.Width = 162.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Tarefas'
+      OnClick = btnTarefasClick
+    end
+    object btnAttachments: TButton
+      Position.X = 7.000000000000000000
+      Position.Y = 185.000000000000000000
+      Size.Width = 162.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Anexos'
+      OnClick = btnAttachmentsClick
+    end
+    object Label1: TLabel
+      Position.X = 7.000000000000000000
+      Position.Y = 15.000000000000000000
+      Text = 'Gest'#227'o des rojetos'
+      TabOrder = 4
+    end
   end
   object FDConnection: TFDConnection
-    Left = 480
-    Top = 320
+    Left = 880
+    Top = 264
   end
   object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
-    Left = 480
-    Top = 272
+    Left = 880
+    Top = 216
   end
 end
