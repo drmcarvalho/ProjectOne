@@ -31,14 +31,18 @@ type
     FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink;
     procedure FormCreate(Sender: TObject);
     procedure FillComboboxProjects;
+    procedure btnCancelClick(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
   private
     { Private declarations }
+    function IsFieldsValid: Boolean;
   public
     { Public declarations }
   end;
 
 var
   FrmReqRegister: TFrmReqRegister;
+  RequerimentIdSelected: Integer;
 
 implementation
 
@@ -73,6 +77,70 @@ begin
   FillComboboxProjects;
 end;
 
+procedure TFrmReqRegister.btnCancelClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrmReqRegister.btnSaveClick(Sender: TObject);
+var
+  query: TFDQuery;
+  title: string;
+  description: string;
+  typeRequeriment: string;
+  projectId: integer;
+  status: string;
+begin
+  edtTitle.Text        := DeleteRepeatedSpaces(edtTitle.Text);
+  memoDescription.Text := DeleteRepeatedSpaces(memoDescription.Text);
+
+
+  if not IsFieldsValid then
+    Exit;
+
+
+  title           := edtTitle.Text;
+  description     := memoDescription.Text;
+  typeRequeriment := cbTypeReq.Items.KeyNames[cbTypeReq.ItemIndex];
+  projectId       := StrToInt(cbProject.Items.KeyNames[cbProject.ItemIndex]);
+  status          := cbStatus.Items.KeyNames[cbStatus.ItemIndex];
+
+
+  query := TFDQuery.Create(nil);
+  try
+    with query do
+    begin
+      Connection := FDConnection;
+      if RequerimentIdSelected > 0 then
+      begin
+        SQL.Text := 'UPDATE Requisitos SET Titulo = :Titulo, Descricao = :Descricao, Ativo = :Ativo, ProjetoId = :ProjetoId, Tipo = :Tipo, Status = :Status '
+                      + 'WHERE Id = :RequerimentId';
+        Params.ParamByName('RequerimentId').AsInteger := RequerimentIdSelected;
+      end
+      else
+      begin
+        SQL.Text := 'INSERT INTO Requisitos (Titulo, Descricao, Ativo, ProjetoId, Tipo, Status) VALUES (:Titulo, :Descricao, :Ativo, :ProjetoId, :Tipo, :Status)';
+      end;
+      Params.ParamByName('Titulo').AsString     := title;
+      Params.ParamByName('Descricao').AsString  := description;
+      Params.ParamByName('Ativo').AsInteger     := 1;
+      Params.ParamByName('ProjetoId').AsInteger := projectId;
+      Params.ParamByName('Tipo').AsString       := typeRequeriment;
+      Params.ParamByName('Status').AsString     := status;
+      ExecSQL;
+    end;
+  finally
+    query.Close;
+    query.DisposeOf;
+  end;
+
+
+  ShowMessage('Requisito foi salvo com sucesso!');
+
+
+  Close;
+end;
+
 procedure TFrmReqRegister.FillComboboxProjects;
 var query: TFDQuery;
 begin
@@ -95,6 +163,30 @@ begin
   finally
     query.Close;
     query.DisposeOf;
+  end;
+end;
+
+function TFrmReqRegister.IsFieldsValid: Boolean;
+begin
+  Result := True;
+
+
+  if edtTitle.Text = '' then
+  begin
+    ShowMessage('O campo titulo do requisito é obrigatorio!');
+    Result := False;
+  end;
+  if cbProject.ItemIndex < 0 then
+  begin
+    ShowMessage('Selecione um projeto!');
+    Result := False;
+  end;
+
+
+  if not ((Length(edtTitle.Text) >= 3) and (Length(edtTitle.Text) <= 100)) then
+  begin
+    ShowMessage('Informe um valor entre 3 a 100 caracteres para o campo título!');
+    Result := False;
   end;
 end;
 

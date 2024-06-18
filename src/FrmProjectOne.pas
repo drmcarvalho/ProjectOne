@@ -134,7 +134,7 @@ begin
   InitTranslate;
 
 
-  /// CREATE FILE SQLITE AND TABLES
+  /// CREATE FILE SQLITE DATABASE AND TABLES
 
   CreateDatabase;
 end;
