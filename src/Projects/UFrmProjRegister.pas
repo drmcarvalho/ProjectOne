@@ -11,7 +11,7 @@ uses
   FireDAC.FMXUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat,
   FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.DApt, FireDAC.Stan.Param,
   Data.DB, FireDAC.Comp.Client, FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
-  UFunctions, FMX.ListBox;
+  UFunctions, FMX.ListBox, UConstants;
 
 type
   TFrmProjRegister = class(TForm)
@@ -141,8 +141,8 @@ procedure TFrmProjRegister.FormCreate(Sender: TObject);
 begin
   /// CONNECTION DATABASE SQLITE
 
-  FDConnection.DriverName                := 'SQLITE';
-  FDConnection.Params.Values['Database'] := 'D:\projetos\delphi\ProjectOne\Database\projectone.db';
+  FDConnection.DriverName                := cDBDriver;
+  FDConnection.Params.Values['Database'] := PathOfExecutable + cSQLiteFile;
   try
     FDConnection.Open;
   except on E: EDatabaseError do

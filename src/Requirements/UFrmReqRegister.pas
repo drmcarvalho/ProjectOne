@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.FMXUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat,
   FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, Data.DB, FireDAC.Comp.Client,
-  UFunctions;
+  UFunctions, UConstants;
 
 type
   TFrmReqRegister = class(TForm)
@@ -33,16 +33,18 @@ type
     procedure FillComboboxProjects;
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
     function IsFieldsValid: Boolean;
+    procedure FindRequerimentAndFillFields;
   public
     { Public declarations }
+    RequerimentIdSelected: Integer;
   end;
 
 var
   FrmReqRegister: TFrmReqRegister;
-  RequerimentIdSelected: Integer;
 
 implementation
 
@@ -52,8 +54,8 @@ procedure TFrmReqRegister.FormCreate(Sender: TObject);
 begin
   /// CONNECTION TO DATABASE SQLITE
 
-  FDConnection.DriverName                := 'SQLITE';
-  FDConnection.Params.Values['Database'] := 'D:\projetos\delphi\ProjectOne\Database\projectone.db';
+  FDConnection.DriverName                := cDBDriver;
+  FDConnection.Params.Values['Database'] := PathOfExecutable + cSQLiteFile;
   try
     FDConnection.Open;
   except on E: EDatabaseError do
@@ -75,6 +77,14 @@ begin
 
 
   FillComboboxProjects;
+end;
+
+procedure TFrmReqRegister.FormShow(Sender: TObject);
+begin
+  if RequerimentIdSelected > 0 then
+  begin
+    FindRequerimentAndFillFields;
+  end;
 end;
 
 procedure TFrmReqRegister.btnCancelClick(Sender: TObject);
@@ -113,13 +123,14 @@ begin
       Connection := FDConnection;
       if RequerimentIdSelected > 0 then
       begin
-        SQL.Text := 'UPDATE Requisitos SET Titulo = :Titulo, Descricao = :Descricao, Ativo = :Ativo, ProjetoId = :ProjetoId, Tipo = :Tipo, Status = :Status '
-                      + 'WHERE Id = :RequerimentId';
+        SQL.Text := 'UPDATE Requisitos SET Titulo = :Titulo, Descricao = :Descricao, '
+                    + 'Ativo = :Ativo, ProjetoId = :ProjetoId, Tipo = :Tipo, Status = :Status WHERE Id = :RequerimentId';
         Params.ParamByName('RequerimentId').AsInteger := RequerimentIdSelected;
       end
       else
       begin
-        SQL.Text := 'INSERT INTO Requisitos (Titulo, Descricao, Ativo, ProjetoId, Tipo, Status) VALUES (:Titulo, :Descricao, :Ativo, :ProjetoId, :Tipo, :Status)';
+        SQL.Text := 'INSERT INTO Requisitos (Titulo, Descricao, Ativo, ProjetoId, Tipo, Status) '
+                    + 'VALUES (:Titulo, :Descricao, :Ativo, :ProjetoId, :Tipo, :Status)';
       end;
       Params.ParamByName('Titulo').AsString     := title;
       Params.ParamByName('Descricao').AsString  := description;
@@ -187,6 +198,34 @@ begin
   begin
     ShowMessage('Informe um valor entre 3 a 100 caracteres para o campo título!');
     Result := False;
+  end;
+end;
+
+procedure TFrmReqRegister.FindRequerimentAndFillFields;
+var query: TFDQuery;
+begin
+  query := TFDQuery.Create(nil);
+  try
+    with query do
+    begin
+      Connection := FDConnection;
+      SQL.Clear;
+      SQL.Text := 'SELECT ProjetoId, Titulo, Descricao, Status, ProjetoId, Tipo FROM Requisitos WHERE Id = :RequisitoId';
+      Params.ParamByName('RequisitoId').AsInteger := RequerimentIdSelected;
+      Prepare;
+      Open;
+      First;
+
+
+      edtTitle.Text        := FieldByName('Titulo').AsString;
+      memoDescription.Text := FieldByName('Descricao').AsString;
+      cbStatus.ItemIndex   := cbStatus.Items.IndexOfName(FieldByName('Status').AsString);
+      cbTypeReq.ItemIndex  := cbTypeReq.Items.IndexOfName(FieldByName('Tipo').AsString);
+      cbProject.ItemIndex  := cbProject.Items.IndexOfName(FieldByName('ProjetoId').AsString);
+    end;
+  finally
+    query.Close;
+    query.DisposeOf;
   end;
 end;
 

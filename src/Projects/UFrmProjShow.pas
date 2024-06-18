@@ -11,7 +11,7 @@ uses
   FireDAC.Phys, FireDAC.Phys.SQLite, FireDAC.Stan.Option, FireDAC.Stan.Error,
   FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
   FireDAC.Stan.Async, FireDAC.FMXUI.Wait, FireDAC.DApt, FireDAC.Stan.Param,
-  Data.DB, FireDAC.Comp.Client, UFunctions, FMX.Edit;
+  Data.DB, FireDAC.Comp.Client, UFunctions, FMX.Edit, UConstants;
 
 type
   TFrmProjectShow = class(TForm)
@@ -55,6 +55,9 @@ begin
 
 
   ShowModalFormNewProject;
+
+
+  SearchInProjectsAndFillGrid('');
 end;
 
 procedure TFrmProjectShow.btnSearchClick(Sender: TObject);
@@ -71,6 +74,9 @@ begin
   else
   begin
     ShowModalFormNewProject;
+
+
+    SearchInProjectsAndFillGrid('');
   end;
 end;
 
@@ -96,8 +102,8 @@ procedure TFrmProjectShow.FormCreate(Sender: TObject);
 begin
   /// CONNECTION TO DATABASE SQLITE
 
-  FDConnection.DriverName                := 'SQLITE';
-  FDConnection.Params.Values['Database'] := 'D:\projetos\delphi\ProjectOne\Database\projectone.db';
+  FDConnection.DriverName                := cDBDriver;
+  FDConnection.Params.Values['Database'] := PathOfExecutable + cSQLiteFile;
   try
     FDConnection.Open;
   except on E: EDatabaseError do
@@ -154,7 +160,7 @@ end;
 procedure TFrmProjectShow.sgProjectsSelectCell(Sender: TObject; const ACol,
   ARow: Integer; var CanSelect: Boolean);
 begin
-  if ARow > -1 then
+  if (ARow > -1) and (sgProjects.Cells[0, ARow] <> '') then
   begin
     ProjectIdSelected := StrToInt(sgProjects.Cells[0, ARow]);
   end;

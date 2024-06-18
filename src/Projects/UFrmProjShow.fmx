@@ -29,7 +29,10 @@ object FrmProjectShow: TFrmProjectShow
     Size.Width = 824.000000000000000000
     Size.Height = 392.000000000000000000
     Size.PlatformDefault = False
+    StyleLookup = 'gridstyle'
+    StyledSettings = [Family, Size, Style, FontColor, Other]
     TabOrder = 1
+    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
     OnSelectCell = sgProjectsSelectCell
     Viewport.Width = 804.000000000000000000
     Viewport.Height = 367.000000000000000000
@@ -39,14 +42,14 @@ object FrmProjectShow: TFrmProjectShow
       ReadOnly = True
     end
     object scTitle: TStringColumn
-      Header = 'T'#237'tulo'
+      Header = 'T'#237'tulo do projeto'
       ReadOnly = True
-      Size.Width = 572.000000000000000000
+      Size.Width = 516.000000000000000000
     end
     object scStatus: TStringColumn
       Header = 'Status'
       ReadOnly = True
-      Size.Width = 119.000000000000000000
+      Size.Width = 183.000000000000000000
     end
   end
   object btnSearch: TButton

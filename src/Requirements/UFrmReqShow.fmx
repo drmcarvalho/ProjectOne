@@ -31,9 +31,10 @@ object FrmReqShow: TFrmReqShow
     Position.Y = 48.000000000000000000
     TabOrder = 8
     Text = 'Atualizar'
+    OnClick = btnUpdateClick
   end
   object btnNewRequeriment: TButton
-    Position.X = 945.000000000000000000
+    Position.X = 951.000000000000000000
     Position.Y = 48.000000000000000000
     Size.Width = 112.000000000000000000
     Size.Height = 22.000000000000000000
@@ -51,6 +52,8 @@ object FrmReqShow: TFrmReqShow
     Size.Height = 369.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 11
+    Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
+    OnSelectCell = sgRequerimentsSelectCell
     Viewport.Width = 1049.000000000000000000
     Viewport.Height = 369.000000000000000000
     object icRequerimentId: TIntegerColumn
