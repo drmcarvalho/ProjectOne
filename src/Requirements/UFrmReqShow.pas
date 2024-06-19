@@ -45,7 +45,7 @@ type
 
 var
   FrmReqShow: TFrmReqShow;
-  RequerimentIdSelected: integer;
+  RequirementIdSelected: integer;
 
 implementation
 
@@ -53,7 +53,7 @@ implementation
 
 procedure TFrmReqShow.btnNewRequerimentClick(Sender: TObject);
 begin
-  RequerimentIdSelected := 0;
+  RequirementIdSelected := 0;
 
 
   ShowModalFormNewReq;
@@ -66,7 +66,7 @@ procedure TFrmReqShow.ShowModalFormNewReq;
 var frmNewReq: TFrmReqRegister;
 begin
   frmNewReq := TFrmReqRegister.Create(self);
-  frmNewReq.RequerimentIdSelected := RequerimentIdSelected;
+  frmNewReq.RequerimentIdSelected := RequirementIdSelected;
   frmNewReq.ShowModal;
   FreeAndNil(frmNewReq);
 end;
@@ -78,7 +78,7 @@ end;
 
 procedure TFrmReqShow.btnUpdateClick(Sender: TObject);
 begin
-  if RequerimentIdSelected = 0 then
+  if RequirementIdSelected = 0 then
   begin
     ShowMessage('Por favor selecione um registro para alterar.');
   end
@@ -109,7 +109,7 @@ begin
   SearchInRequerimentsAndFillGrid('');
 
 
-  RequerimentIdSelected := 0;
+  RequirementIdSelected := 0;
 end;
 
 procedure TFrmReqShow.SearchInRequerimentsAndFillGrid(const term: string);
@@ -160,7 +160,7 @@ procedure TFrmReqShow.sgRequerimentsSelectCell(Sender: TObject; const ACol,
 begin
   if (ARow > -1) and (sgRequeriments.Cells[0, ARow] <> '') then
   begin
-    RequerimentIdSelected := StrToInt(sgRequeriments.Cells[0, ARow]);
+    RequirementIdSelected := StrToInt(sgRequeriments.Cells[0, ARow]);
   end;
 end;
 

@@ -11,7 +11,8 @@ uses
   FireDAC.FMXUI.Wait, FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat,
   FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, FireDAC.DApt, FireDAC.Stan.Param,
   Data.DB, FireDAC.Comp.Client, FMX.Edit, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
-  UFunctions, FMX.ListBox, UConstants;
+  UFunctions, FMX.ListBox, UConstants, FMX.ListView.Types,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView;
 
 type
   TFrmProjRegister = class(TForm)
@@ -25,6 +26,7 @@ type
     memoBodyDescription: TMemo;
     cbStatus: TComboBox;
     Label3: TLabel;
+    lvAttachments: TListView;
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

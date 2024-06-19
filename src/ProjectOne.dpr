@@ -13,7 +13,8 @@ uses
   UFrmProjShow in 'Projects\UFrmProjShow.pas' {FrmProjectShow},
   UFunctions in 'UFunctions.pas',
   UTranslate in 'UTranslate.pas',
-  UConstants in 'UConstants.pas';
+  UConstants in 'UConstants.pas',
+  UFrmAttachmentShow in 'Attachments\UFrmAttachmentShow.pas' {Form1};
 
 {$R *.res}
 
@@ -26,5 +27,6 @@ begin
   Application.CreateForm(TFrmProjRegister, FrmProjRegister);
   Application.CreateForm(TForm5, Form5);
   Application.CreateForm(TFrmProjectShow, FrmProjectShow);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

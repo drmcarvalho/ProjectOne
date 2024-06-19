@@ -223,6 +223,10 @@
         <DCCReference Include="UFunctions.pas"/>
         <DCCReference Include="UTranslate.pas"/>
         <DCCReference Include="UConstants.pas"/>
+        <DCCReference Include="Attachments\UFrmAttachmentShow.pas">
+            <Form>Form1</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -424,6 +428,12 @@
                 <DeployFile LocalName="Win64\Debug\ProjectOne.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>ProjectOne.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\ProjectOne.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>ProjectOne.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

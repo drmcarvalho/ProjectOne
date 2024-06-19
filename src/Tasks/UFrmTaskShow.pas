@@ -6,7 +6,12 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.Rtti,
   FMX.Grid.Style, FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid,
-  FMX.StdCtrls, FMX.Header, FMX.Objects;
+  FMX.StdCtrls, FMX.Header, FMX.Objects, FireDAC.Stan.ExprFuncs,
+  FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.Phys.SQLiteDef, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.FMXUI.Wait, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.SQLite,
+  FMX.Edit;
 
 type
   TFrmTaskShow = class(TForm)
@@ -19,7 +24,10 @@ type
     btnSearch: TButton;
     btnNewTask: TButton;
     btnUpdateTask: TButton;
-    procedure Button1Click(Sender: TObject);
+    FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink;
+    FDConnection: TFDConnection;
+    Edit1: TEdit;
+    procedure btnNewTaskClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,14 +41,9 @@ implementation
 
 {$R *.fmx}
 
-procedure TFrmTaskShow.Button1Click(Sender: TObject);
+procedure TFrmTaskShow.btnNewTaskClick(Sender: TObject);
 begin
-  StringGrid.RowCount    := 2;
-  StringGrid.Cells[0, 0] := 'Terefa 1';
-  StringGrid.Cells[1, 0] := 'Descricao 1';
-  StringGrid.Cells[0, 1] := 'Terefa 2';
-  StringGrid.Cells[1, 1] := 'Descricao 2';
-
+//
 end;
 
 end.

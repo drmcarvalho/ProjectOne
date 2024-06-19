@@ -3,7 +3,7 @@ object FrmProjRegister: TFrmProjRegister
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Novo projeto'
-  ClientHeight = 476
+  ClientHeight = 629
   ClientWidth = 646
   Fill.Kind = Solid
   Position = ScreenCenter
@@ -14,15 +14,15 @@ object FrmProjRegister: TFrmProjRegister
   OnShow = FormShow
   DesignerMasterStyle = 0
   object btnSave: TButton
-    Position.X = 440.000000000000000000
-    Position.Y = 432.000000000000000000
+    Position.X = 456.000000000000000000
+    Position.Y = 592.000000000000000000
     TabOrder = 0
     Text = 'Salvar'
     OnClick = btnSaveClick
   end
   object btnCancel: TButton
     Position.X = 544.000000000000000000
-    Position.Y = 432.000000000000000000
+    Position.Y = 592.000000000000000000
     TabOrder = 1
     Text = 'Cancelar'
     OnClick = btnCancelClick
@@ -78,12 +78,24 @@ object FrmProjRegister: TFrmProjRegister
     Text = 'Status'
     TabOrder = 12
   end
+  object lvAttachments: TListView
+    ItemAppearanceClassName = 'TListItemAppearance'
+    ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Position.X = 16.000000000000000000
+    Position.Y = 456.000000000000000000
+    Size.Width = 608.000000000000000000
+    Size.Height = 89.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 16
+  end
   object FDConnection: TFDConnection
-    Left = 24
-    Top = 424
+    Left = 288
+    Top = 272
   end
   object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
-    Left = 136
-    Top = 424
+    Left = 144
+    Top = 272
   end
 end
