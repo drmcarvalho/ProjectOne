@@ -1,6 +1,7 @@
 object FrmProjRegister: TFrmProjRegister
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   Caption = 'Novo projeto'
   ClientHeight = 476
   ClientWidth = 646

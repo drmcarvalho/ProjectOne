@@ -1,6 +1,7 @@
 object FrmReqShow: TFrmReqShow
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   BorderStyle = Single
   Caption = 'Requisitos'
   ClientHeight = 480

@@ -1,6 +1,7 @@
 object FrmReqRegister: TFrmReqRegister
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   Caption = 'Novo requisito de software'
   ClientHeight = 507
   ClientWidth = 757

@@ -49,6 +49,7 @@ object FormProjectOne: TFormProjectOne
       Text = 'Tarefas'
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.HorzAlign = Leading
+      OnClick = sbTasksClick
     end
     object sbAttachs: TSpeedButton
       StyledSettings = [Family, Size, FontColor]
@@ -60,7 +61,6 @@ object FormProjectOne: TFormProjectOne
       Text = 'Anexos'
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.HorzAlign = Leading
-      OnClick = sbAttachsClick
     end
     object sbReqs: TSpeedButton
       StyledSettings = [Family, Size, FontColor]

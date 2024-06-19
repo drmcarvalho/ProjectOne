@@ -25,8 +25,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure sbProjectsClick(Sender: TObject);
     procedure sbReqsClick(Sender: TObject);
-    procedure sbAttachsClick(Sender: TObject);
     procedure ExpanderDblClick(Sender: TObject);
+    procedure sbTasksClick(Sender: TObject);
   private
     { Private declarations }
     procedure CreateDatabase;
@@ -115,14 +115,6 @@ begin
   CreateDatabase;
 end;
 
-procedure TFormProjectOne.sbAttachsClick(Sender: TObject);
-var frmTaskShow: TFrmTaskShow;
-begin
-  frmTaskShow := TFrmTaskShow.Create(self);
-  frmTaskShow.ShowModal;
-  FreeAndNil(frmTaskShow);
-end;
-
 procedure TFormProjectOne.sbProjectsClick(Sender: TObject);
 var frmProjectShow: TFrmProjectShow;
 begin
@@ -137,6 +129,14 @@ begin
   frmReqShow := TFrmReqShow.Create(self);
   frmReqShow.ShowModal;
   FreeAndNil(frmReqShow);
+end;
+
+procedure TFormProjectOne.sbTasksClick(Sender: TObject);
+var frmTaskShow: TFrmTaskShow;
+begin
+  frmTaskShow := TFrmTaskShow.Create(self);
+  frmTaskShow.ShowModal;
+  FreeAndNil(frmTaskShow);
 end;
 
 end.

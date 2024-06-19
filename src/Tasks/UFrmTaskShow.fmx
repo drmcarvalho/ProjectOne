@@ -1,9 +1,12 @@
 object FrmTaskShow: TFrmTaskShow
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = Single
   Caption = 'FormTaskShow'
   ClientHeight = 480
   ClientWidth = 842
+  Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
