@@ -5,6 +5,7 @@ object FrmReqShow: TFrmReqShow
   Caption = 'Requisitos'
   ClientHeight = 480
   ClientWidth = 1071
+  Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -54,8 +55,8 @@ object FrmReqShow: TFrmReqShow
     TabOrder = 11
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
     OnSelectCell = sgRequerimentsSelectCell
-    Viewport.Width = 1049.000000000000000000
-    Viewport.Height = 369.000000000000000000
+    Viewport.Width = 1029.000000000000000000
+    Viewport.Height = 344.000000000000000000
     object icRequerimentId: TIntegerColumn
       Header = 'C'#243'digo'
       ReadOnly = True

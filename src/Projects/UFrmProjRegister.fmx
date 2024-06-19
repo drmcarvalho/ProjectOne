@@ -4,6 +4,7 @@ object FrmProjRegister: TFrmProjRegister
   Caption = 'Novo projeto'
   ClientHeight = 476
   ClientWidth = 646
+  Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]

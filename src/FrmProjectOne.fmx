@@ -31,7 +31,6 @@ object FormProjectOne: TFormProjectOne
     object sbProjects: TSpeedButton
       StyledSettings = [Family, Size, FontColor]
       Position.X = 7.000000000000000000
-      Position.Y = 40.000000000000000000
       Size.Width = 162.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
@@ -43,7 +42,7 @@ object FormProjectOne: TFormProjectOne
     object sbTasks: TSpeedButton
       StyledSettings = [Family, Size, FontColor]
       Position.X = 7.000000000000000000
-      Position.Y = 73.000000000000000000
+      Position.Y = 66.000000000000000000
       Size.Width = 162.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
@@ -54,7 +53,7 @@ object FormProjectOne: TFormProjectOne
     object sbAttachs: TSpeedButton
       StyledSettings = [Family, Size, FontColor]
       Position.X = 7.000000000000000000
-      Position.Y = 106.000000000000000000
+      Position.Y = 99.000000000000000000
       Size.Width = 162.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
@@ -66,7 +65,7 @@ object FormProjectOne: TFormProjectOne
     object sbReqs: TSpeedButton
       StyledSettings = [Family, Size, FontColor]
       Position.X = 7.000000000000000000
-      Position.Y = 7.000000000000000000
+      Position.Y = 33.000000000000000000
       Size.Width = 162.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
