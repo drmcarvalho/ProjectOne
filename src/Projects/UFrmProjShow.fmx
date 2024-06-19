@@ -12,6 +12,7 @@ object FrmProjectShow: TFrmProjectShow
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   DesignerMasterStyle = 0
   object btnNewProject: TButton
     Position.X = 720.000000000000000000

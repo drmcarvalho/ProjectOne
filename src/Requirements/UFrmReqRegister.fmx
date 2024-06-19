@@ -11,6 +11,7 @@ object FrmReqRegister: TFrmReqRegister
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   DesignerMasterStyle = 0
   object Label1: TLabel

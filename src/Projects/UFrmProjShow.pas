@@ -33,6 +33,8 @@ type
     procedure edtSearchKeyUp(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
     procedure btnUpdateClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
     procedure SearchInProjectsAndFillGrid(const term: string);
@@ -117,6 +119,15 @@ begin
 
 
   ProjectIdSelected := 0;
+end;
+
+procedure TFrmProjectShow.FormKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if Key = vkEscape then
+  begin
+    Close;
+  end;
 end;
 
 procedure TFrmProjectShow.SearchInProjectsAndFillGrid(const term: string);

@@ -11,6 +11,7 @@ object FrmProjRegister: TFrmProjRegister
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   DesignerMasterStyle = 0
   object btnSave: TButton
@@ -61,8 +62,8 @@ object FrmProjRegister: TFrmProjRegister
     Size.Height = 271.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 7
-    Viewport.Width = 604.000000000000000000
-    Viewport.Height = 267.000000000000000000
+    Viewport.Width = 608.000000000000000000
+    Viewport.Height = 271.000000000000000000
   end
   object cbStatus: TComboBox
     Position.X = 368.000000000000000000

@@ -12,6 +12,7 @@ object FrmReqShow: TFrmReqShow
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   DesignerMasterStyle = 0
   object btnSearch: TButton
     Position.X = 8.000000000000000000

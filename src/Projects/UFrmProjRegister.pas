@@ -31,6 +31,8 @@ type
     procedure btnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
     function IsFieldsValid: Boolean;
@@ -157,6 +159,15 @@ begin
   cbStatus.Items.AddPair('PC', ProjectStatusToSpellOut('PC'));
   cbStatus.Items.AddPair('AD', ProjectStatusToSpellOut('AD'));
   cbStatus.ItemIndex := 0;
+end;
+
+procedure TFrmProjRegister.FormKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if key = vkEscape then
+  begin
+    Close;
+  end;
 end;
 
 procedure TFrmProjRegister.FormShow(Sender: TObject);

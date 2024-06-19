@@ -35,6 +35,8 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private declarations }
     function IsFieldsValid: Boolean;
@@ -78,6 +80,15 @@ begin
 
 
   FillComboboxProjects;
+end;
+
+procedure TFrmReqRegister.FormKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if Key = vkEscape then
+  begin
+    Close;
+  end;
 end;
 
 procedure TFrmReqRegister.FormShow(Sender: TObject);
