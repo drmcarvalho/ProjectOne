@@ -143,7 +143,7 @@ begin
         sgRequeriments.Cells[2, I] := FieldByName('Descricao').AsString;
         sgRequeriments.Cells[3, I] := FieldByName('Projeto').AsString;
         sgRequeriments.Cells[4, I] := RequerimentTypeToSpellOut(FieldByName('Tipo').AsString);
-        sgRequeriments.Cells[5, I] := FieldByName('Ativo').AsString;
+        sgRequeriments.Cells[5, I] := RequerimentActiveToSpellOut(FieldByName('Ativo').AsInteger);
         sgRequeriments.Cells[6, I] := RequerimentStatusToSpellOut(FieldByName('Status').AsString);
         Inc(I);
         Next;

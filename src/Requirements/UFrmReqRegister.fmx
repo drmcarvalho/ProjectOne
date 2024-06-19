@@ -61,7 +61,7 @@ object FrmReqRegister: TFrmReqRegister
     TabOrder = 8
     Position.X = 8.000000000000000000
     Position.Y = 72.000000000000000000
-    Size.Width = 741.000000000000000000
+    Size.Width = 596.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
   end
@@ -107,12 +107,22 @@ object FrmReqRegister: TFrmReqRegister
     Text = 'Cancelar'
     OnClick = btnCancelClick
   end
+  object chkbActive: TCheckBox
+    IsChecked = True
+    Position.X = 612.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 120.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    Text = 'Ativo'
+  end
   object FDConnection: TFDConnection
-    Left = 520
-    Top = 48
+    Left = 456
+    Top = 272
   end
   object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
-    Left = 656
-    Top = 48
+    Left = 528
+    Top = 272
   end
 end

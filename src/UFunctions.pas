@@ -9,6 +9,7 @@ function DeleteRepeatedSpaces(const OldText: string): string;
 function ProjectStatusToSpellOut(const status: string): string;
 function RequerimentTypeToSpellOut(const vType: string): string;
 function RequerimentStatusToSpellOut(const status: string): string;
+function RequerimentActiveToSpellOut(const vActive: integer): string;
 function PathOfExecutable: string;
 
 implementation
@@ -74,7 +75,17 @@ begin
     1: Result := 'Cancelado';
     2: Result := 'Projeto concluído';
   else
-    Result := 'Status inderteminado';
+    Result := 'Status indeterminado';
+  end
+end;
+
+function RequerimentActiveToSpellOut(const vActive: integer): string;
+begin
+  case vActive of
+    0: Result := 'Não';
+    1: Result := 'Sim';
+  else
+      Result := 'Ativo indeterminado';
   end
 end;
 

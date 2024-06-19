@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.DialogService,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, FMX.ListBox,
   FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
@@ -29,6 +29,7 @@ type
     btnCancel: TButton;
     FDConnection: TFDConnection;
     FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink;
+    chkbActive: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FillComboboxProjects;
     procedure btnCancelClick(Sender: TObject);
@@ -100,6 +101,28 @@ var
   typeRequeriment: string;
   projectId: integer;
   status: string;
+  vActive: integer;
+  function HasTask(const requerimentId: integer): boolean;
+  var query: TFDQuery;
+  begin
+    query := TFDQuery.Create(nil);
+    try
+      with query do
+      begin
+        Connection := FDConnection;
+        SQL.Clear;
+        SQL.Text := 'SELECT COUNT(*) AS "Count" FROM Tarefas WHERE RequisitoId = :RequisitoId';
+        Params.ParamByName('RequisitoId').AsInteger := RequerimentIdSelected;
+        Prepare;
+        Open;
+        First;
+        Result := FieldByName('Count').AsInteger > 0;
+      end;
+    finally
+      query.Close;
+      query.DisposeOf;
+    end;
+  end;
 begin
   edtTitle.Text        := DeleteRepeatedSpaces(edtTitle.Text);
   memoDescription.Text := DeleteRepeatedSpaces(memoDescription.Text);
@@ -109,11 +132,29 @@ begin
     Exit;
 
 
+  if (not chkbActive.IsChecked) and (RequerimentIdSelected > 0) then
+  begin
+    if HasTask(RequerimentIdSelected) then
+    begin
+        TDialogService.MessageDialog('Existe tarefas para este requisito. Tem certeza que quer inativar?',
+          TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo],
+          TMsgDlgBtn.mbOK, 0, procedure(const AResult: TModalResult)
+        begin
+          if AResult = mrNo then
+          begin
+            Abort;
+          end;
+        end);
+    end;
+  end;
+
+
   title           := edtTitle.Text;
   description     := memoDescription.Text;
   typeRequeriment := cbTypeReq.Items.KeyNames[cbTypeReq.ItemIndex];
   projectId       := StrToInt(cbProject.Items.KeyNames[cbProject.ItemIndex]);
   status          := cbStatus.Items.KeyNames[cbStatus.ItemIndex];
+  if chkbActive.IsChecked then vActive := 1 else vActive := 0;
 
 
   query := TFDQuery.Create(nil);
@@ -134,7 +175,7 @@ begin
       end;
       Params.ParamByName('Titulo').AsString     := title;
       Params.ParamByName('Descricao').AsString  := description;
-      Params.ParamByName('Ativo').AsInteger     := 1;
+      Params.ParamByName('Ativo').AsInteger     := vActive;
       Params.ParamByName('ProjetoId').AsInteger := projectId;
       Params.ParamByName('Tipo').AsString       := typeRequeriment;
       Params.ParamByName('Status').AsString     := status;
@@ -210,7 +251,7 @@ begin
     begin
       Connection := FDConnection;
       SQL.Clear;
-      SQL.Text := 'SELECT ProjetoId, Titulo, Descricao, Status, ProjetoId, Tipo FROM Requisitos WHERE Id = :RequisitoId';
+      SQL.Text := 'SELECT ProjetoId, Titulo, Descricao, Status, ProjetoId, Tipo, Ativo FROM Requisitos WHERE Id = :RequisitoId';
       Params.ParamByName('RequisitoId').AsInteger := RequerimentIdSelected;
       Prepare;
       Open;
@@ -218,10 +259,11 @@ begin
 
 
       edtTitle.Text        := FieldByName('Titulo').AsString;
-      memoDescription.Text := FieldByName('Descricao').AsString;
       cbStatus.ItemIndex   := cbStatus.Items.IndexOfName(FieldByName('Status').AsString);
       cbTypeReq.ItemIndex  := cbTypeReq.Items.IndexOfName(FieldByName('Tipo').AsString);
       cbProject.ItemIndex  := cbProject.Items.IndexOfName(FieldByName('ProjetoId').AsString);
+      chkbActive.IsChecked := FieldByName('Ativo').AsInteger = 1;
+      memoDescription.Text := FieldByName('Descricao').AsString;
     end;
   finally
     query.Close;
