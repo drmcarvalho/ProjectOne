@@ -7,74 +7,87 @@ object FormProjectOne: TFormProjectOne
     'e'
   ClientHeight = 730
   ClientWidth = 999
+  Fill.Kind = Solid
   Position = MainFormCenter
-  StyleBook = StyleBook1
+  StyleBook = StyleBook
   WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object Expander: TExpander
-    Anchors = [akLeft, akTop, akBottom]
-    StyledSettings = [Family, Size, FontColor]
-    TextSettings.Font.StyleExt = {00070000000000000004000000}
-    Position.X = 8.000000000000000000
-    Position.Y = 8.000000000000000000
-    ShowCheck = False
-    Size.Width = 177.000000000000000000
-    Size.Height = 714.000000000000000000
+  object Layout: TLayout
+    Align = Client
+    Size.Width = 999.000000000000000000
+    Size.Height = 730.000000000000000000
     Size.PlatformDefault = False
-    StyleLookup = 'ExpanderStyle1'
-    Text = 'Menu'
-    TabOrder = 2
-    OnDblClick = ExpanderDblClick
-    ContentSize = '689'
-    object sbProjects: TSpeedButton
-      StyledSettings = [Family, Size, FontColor]
-      Position.X = 7.000000000000000000
-      Size.Width = 162.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Projetos'
+    TabOrder = 5
+    object Expander: TExpander
+      Anchors = [akLeft, akTop, akBottom]
+      StyledSettings = [Family, FontColor]
+      TextSettings.Font.Size = 14.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Leading
-      OnClick = sbProjectsClick
-    end
-    object sbTasks: TSpeedButton
-      StyledSettings = [Family, Size, FontColor]
-      Position.X = 7.000000000000000000
-      Position.Y = 66.000000000000000000
-      Size.Width = 162.000000000000000000
-      Size.Height = 25.000000000000000000
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      ShowCheck = False
+      Size.Width = 177.000000000000000000
+      Size.Height = 714.000000000000000000
       Size.PlatformDefault = False
-      Text = 'Tarefas'
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Leading
-      OnClick = sbTasksClick
-    end
-    object sbAttachs: TSpeedButton
-      StyledSettings = [Family, Size, FontColor]
-      Position.X = 7.000000000000000000
-      Position.Y = 99.000000000000000000
-      Size.Width = 162.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Anexos'
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Leading
-    end
-    object sbReqs: TSpeedButton
-      StyledSettings = [Family, Size, FontColor]
-      Position.X = 7.000000000000000000
-      Position.Y = 33.000000000000000000
-      Size.Width = 162.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      Text = 'Requisitos'
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.HorzAlign = Leading
-      OnClick = sbReqsClick
+      StyleLookup = 'ExpanderStyle1'
+      Text = 'Menu'
+      TabOrder = 2
+      OnDblClick = ExpanderDblClick
+      ContentSize = '689'
+      object sbProjects: TSpeedButton
+        StyledSettings = [Family, FontColor]
+        Position.X = 7.000000000000000000
+        Size.Width = 162.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Projetos'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Leading
+        OnClick = sbProjectsClick
+      end
+      object sbTasks: TSpeedButton
+        StyledSettings = [Family, FontColor]
+        Position.X = 7.000000000000000000
+        Position.Y = 66.000000000000000000
+        Size.Width = 162.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Tarefas'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Leading
+        OnClick = sbTasksClick
+      end
+      object sbAttachs: TSpeedButton
+        StyledSettings = [Family, FontColor]
+        Position.X = 7.000000000000000000
+        Position.Y = 99.000000000000000000
+        Size.Width = 162.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Anexos'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Leading
+      end
+      object sbReqs: TSpeedButton
+        StyledSettings = [Family, FontColor]
+        Position.X = 7.000000000000000000
+        Position.Y = 33.000000000000000000
+        Size.Width = 162.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Requisitos'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Leading
+        OnClick = sbReqsClick
+      end
     end
   end
   object FDConnection: TFDConnection
@@ -85,7 +98,7 @@ object FormProjectOne: TFormProjectOne
     Left = 880
     Top = 216
   end
-  object StyleBook1: TStyleBook
+  object StyleBook: TStyleBook
     Styles = <
       item
       end
@@ -347,5 +360,7 @@ object FormProjectOne: TFormProjectOne
           636C61426C61636B0C50726573736564436F6C6F720708636C61426C61636B00
           0000}
       end>
+    Left = 200
+    Top = 8
   end
 end

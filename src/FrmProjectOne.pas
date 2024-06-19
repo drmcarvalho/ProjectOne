@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.FMXUI.Wait,
   FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat,
   FireDAC.Phys.SQLiteDef, FireDAC.Phys.SQLite, Data.DB, FireDAC.Comp.Client,
-  FireDAC.DApt, UConstants;
+  FireDAC.DApt, UConstants, FMX.Layouts;
 
 type
   TFormProjectOne = class(TForm)
@@ -22,7 +22,8 @@ type
     sbTasks: TSpeedButton;
     sbAttachs: TSpeedButton;
     sbReqs: TSpeedButton;
-    StyleBook1: TStyleBook;
+    StyleBook: TStyleBook;
+    Layout: TLayout;
     procedure FormCreate(Sender: TObject);
     procedure sbProjectsClick(Sender: TObject);
     procedure sbReqsClick(Sender: TObject);
