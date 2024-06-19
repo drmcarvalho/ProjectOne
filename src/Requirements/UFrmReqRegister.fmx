@@ -5,6 +5,7 @@ object FrmReqRegister: TFrmReqRegister
   Caption = 'Novo requisito de software'
   ClientHeight = 507
   ClientWidth = 757
+  Fill.Kind = Solid
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -84,6 +85,7 @@ object FrmReqRegister: TFrmReqRegister
   object memoDescription: TMemo
     Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
     DataDetectorTypes = []
+    TextSettings.WordWrap = True
     Position.X = 8.000000000000000000
     Position.Y = 209.000000000000000000
     Size.Width = 741.000000000000000000

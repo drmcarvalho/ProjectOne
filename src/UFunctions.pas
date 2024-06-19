@@ -70,10 +70,11 @@ end;
 
 function ProjectStatusToSpellOut(const status: string): string;
 begin
-  case IndexStr(AnsiString(status), [AnsiString('EA'), AnsiString('C'), AnsiString('PC')]) of
+  case IndexStr(AnsiString(status), [AnsiString('EA'), AnsiString('C'), AnsiString('PC'), AnsiString('AD')]) of
     0: Result := 'Em andamento';
     1: Result := 'Cancelado';
     2: Result := 'Projeto concluído';
+    3: Result := 'Aguardando desenvolvimento';
   else
     Result := 'Status indeterminado';
   end

@@ -6,6 +6,7 @@ object FrmProjectShow: TFrmProjectShow
   Caption = 'Projetos'
   ClientHeight = 480
   ClientWidth = 840
+  Fill.Kind = Solid
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -27,9 +28,9 @@ object FrmProjectShow: TFrmProjectShow
     CanFocus = True
     ClipChildren = True
     Position.X = 8.000000000000000000
-    Position.Y = 80.000000000000000000
+    Position.Y = 70.000000000000000000
     Size.Width = 824.000000000000000000
-    Size.Height = 392.000000000000000000
+    Size.Height = 402.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'gridstyle'
     StyledSettings = [Family, Size, Style, FontColor, Other]
@@ -37,7 +38,7 @@ object FrmProjectShow: TFrmProjectShow
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
     OnSelectCell = sgProjectsSelectCell
     Viewport.Width = 804.000000000000000000
-    Viewport.Height = 367.000000000000000000
+    Viewport.Height = 377.000000000000000000
     object icProjectId: TIntegerColumn
       Locked = True
       Header = 'C'#243'digo'

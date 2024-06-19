@@ -153,6 +153,7 @@ begin
   cbStatus.Items.AddPair('EA', ProjectStatusToSpellOut('EA'));
   cbStatus.Items.AddPair('C', ProjectStatusToSpellOut('C'));
   cbStatus.Items.AddPair('PC', ProjectStatusToSpellOut('PC'));
+  cbStatus.Items.AddPair('AD', ProjectStatusToSpellOut('AD'));
   cbStatus.ItemIndex := 0;
 end;
 

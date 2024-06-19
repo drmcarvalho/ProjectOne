@@ -5,6 +5,7 @@ object FrmProjRegister: TFrmProjRegister
   Caption = 'Novo projeto'
   ClientHeight = 476
   ClientWidth = 646
+  Fill.Kind = Solid
   Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -53,6 +54,7 @@ object FrmProjRegister: TFrmProjRegister
   object memoBodyDescription: TMemo
     Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
     DataDetectorTypes = []
+    TextSettings.WordWrap = True
     Position.X = 16.000000000000000000
     Position.Y = 138.000000000000000000
     Size.Width = 608.000000000000000000

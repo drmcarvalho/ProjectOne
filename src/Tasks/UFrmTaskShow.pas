@@ -6,14 +6,19 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.Rtti,
   FMX.Grid.Style, FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid,
-  FMX.StdCtrls;
+  FMX.StdCtrls, FMX.Header, FMX.Objects;
 
 type
   TFrmTaskShow = class(TForm)
-    Button1: TButton;
     StringGrid: TStringGrid;
-    scTask: TStringColumn;
-    scDescription: TStringColumn;
+    scTaskId: TStringColumn;
+    scTaskTitle: TStringColumn;
+    scRequeriment: TStringColumn;
+    scProject: TStringColumn;
+    scStatus: TStringColumn;
+    btnSearch: TButton;
+    btnNewTask: TButton;
+    btnUpdateTask: TButton;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
