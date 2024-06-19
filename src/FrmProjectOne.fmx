@@ -5,7 +5,7 @@ object FormProjectOne: TFormProjectOne
   Caption = 
     'ProjectOne - Aplica'#231#227'o para Gerenciamento de Projetos de Softwar' +
     'e'
-  ClientHeight = 730
+  ClientHeight = 641
   ClientWidth = 999
   Fill.Kind = Solid
   Position = MainFormCenter
@@ -19,7 +19,7 @@ object FormProjectOne: TFormProjectOne
   object Layout: TLayout
     Align = Client
     Size.Width = 999.000000000000000000
-    Size.Height = 730.000000000000000000
+    Size.Height = 641.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 5
     object Expander: TExpander
@@ -31,13 +31,13 @@ object FormProjectOne: TFormProjectOne
       Position.Y = 8.000000000000000000
       ShowCheck = False
       Size.Width = 177.000000000000000000
-      Size.Height = 714.000000000000000000
+      Size.Height = 625.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'ExpanderStyle1'
       Text = 'Menu'
       TabOrder = 2
       OnDblClick = ExpanderDblClick
-      ContentSize = '689'
+      ContentSize = '600'
       object sbProjects: TSpeedButton
         StyledSettings = [Family, FontColor]
         Position.X = 7.000000000000000000
