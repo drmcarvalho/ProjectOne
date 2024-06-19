@@ -22,6 +22,7 @@ type
     sbTasks: TSpeedButton;
     sbAttachs: TSpeedButton;
     sbReqs: TSpeedButton;
+    StyleBook1: TStyleBook;
     procedure FormCreate(Sender: TObject);
     procedure sbProjectsClick(Sender: TObject);
     procedure sbReqsClick(Sender: TObject);
