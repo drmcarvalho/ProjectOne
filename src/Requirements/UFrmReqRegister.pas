@@ -102,6 +102,23 @@ var
   projectId: integer;
   status: string;
   vActive: integer;
+  procedure CancelTasksOfRequeriment(const requerimentId: Integer);
+  var query: TFDQuery;
+  begin
+    query := TFDQuery.Create(nil);
+    try
+      with query do begin
+        Connection := FDConnection;
+        SQL.Clear;
+        SQL.Text := 'UPDATE Tarefas SET Status = "C" WHERE RequisitoId = :RequisitoId';
+        Params.ParamByName('RequisitoId').AsInteger := requerimentId;
+        ExecSQL;
+      end;
+    finally
+      query.Close;
+      query.DisposeOf;
+    end;
+  end;
   function HasTask(const requerimentId: integer): boolean;
   var query: TFDQuery;
   begin
@@ -136,15 +153,16 @@ begin
   begin
     if HasTask(RequerimentIdSelected) then
     begin
-        TDialogService.MessageDialog('Existe tarefas para este requisito. Tem certeza que quer inativar?',
+        TDialogService.MessageDialog('Existe tarefas para este requisito. Tem certeza que quer inativar? Caso seja inativado o requisito todas as tarefas serão canceladas.',
           TMsgDlgType.mtConfirmation, [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo],
           TMsgDlgBtn.mbOK, 0, procedure(const AResult: TModalResult)
         begin
           if AResult = mrNo then
           begin
             Abort;
-          end;
+          end
         end);
+        CancelTasksOfRequeriment(RequerimentIdSelected);
     end;
   end;
 
