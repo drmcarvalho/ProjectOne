@@ -17,17 +17,16 @@ type
   TFormProjectOne = class(TForm)
     FDConnection: TFDConnection;
     FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
-    Expander1: TExpander;
-    btnProjetos: TButton;
-    btnRequisitos: TButton;
-    btnTarefas: TButton;
-    btnAttachments: TButton;
-    Label1: TLabel;
-    procedure btnTarefasClick(Sender: TObject);
-    procedure btnProjetosClick(Sender: TObject);
-    procedure btnRequisitosClick(Sender: TObject);
-    procedure btnAttachmentsClick(Sender: TObject);
+    Expander: TExpander;
+    sbProjects: TSpeedButton;
+    sbTasks: TSpeedButton;
+    sbAttachs: TSpeedButton;
+    sbReqs: TSpeedButton;
     procedure FormCreate(Sender: TObject);
+    procedure sbProjectsClick(Sender: TObject);
+    procedure sbReqsClick(Sender: TObject);
+    procedure sbAttachsClick(Sender: TObject);
+    procedure ExpanderDblClick(Sender: TObject);
   private
     { Private declarations }
     procedure CreateDatabase;
@@ -99,34 +98,9 @@ begin
   end;
 end;
 
-procedure TFormProjectOne.btnAttachmentsClick(Sender: TObject);
+procedure TFormProjectOne.ExpanderDblClick(Sender: TObject);
 begin
-ShowMessage(PathOfExecutable);
-//  ShowMessage(_t('', PtSelectRecord));
-end;
-
-procedure TFormProjectOne.btnProjetosClick(Sender: TObject);
-var frmProjectShow: TFrmProjectShow;
-begin
-  frmProjectShow := TFrmProjectShow.Create(self);
-  frmProjectShow.ShowModal;
-  FreeAndNil(frmProjectShow);
-end;
-
-procedure TFormProjectOne.btnRequisitosClick(Sender: TObject);
-var frmReqShow: TFrmReqShow;
-begin
-  frmReqShow := TFrmReqShow.Create(self);
-  frmReqShow.ShowModal;
-  FreeAndNil(frmReqShow);
-end;
-
-procedure TFormProjectOne.btnTarefasClick(Sender: TObject);
-var frmTaskShow: TFrmTaskShow;
-begin
-  frmTaskShow := TFrmTaskShow.Create(self);
-  frmTaskShow.ShowModal;
-  FreeAndNil(frmTaskShow);
+  Expander.IsExpanded := not Expander.IsExpanded;
 end;
 
 procedure TFormProjectOne.FormCreate(Sender: TObject);
@@ -139,6 +113,30 @@ begin
   /// CREATE FILE SQLITE DATABASE AND TABLES
 
   CreateDatabase;
+end;
+
+procedure TFormProjectOne.sbAttachsClick(Sender: TObject);
+var frmTaskShow: TFrmTaskShow;
+begin
+  frmTaskShow := TFrmTaskShow.Create(self);
+  frmTaskShow.ShowModal;
+  FreeAndNil(frmTaskShow);
+end;
+
+procedure TFormProjectOne.sbProjectsClick(Sender: TObject);
+var frmProjectShow: TFrmProjectShow;
+begin
+  frmProjectShow := TFrmProjectShow.Create(Self);
+  frmProjectShow.ShowModal;
+  FreeAndNil(frmProjectShow);
+end;
+
+procedure TFormProjectOne.sbReqsClick(Sender: TObject);
+var frmReqShow: TFrmReqShow;
+begin
+  frmReqShow := TFrmReqShow.Create(self);
+  frmReqShow.ShowModal;
+  FreeAndNil(frmReqShow);
 end;
 
 end.

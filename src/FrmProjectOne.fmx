@@ -5,72 +5,75 @@ object FormProjectOne: TFormProjectOne
   Caption = 
     'ProjectOne - Aplica'#231#227'o para Gerenciamento de Projetos de Softwar' +
     'e'
-  ClientHeight = 658
+  ClientHeight = 730
   ClientWidth = 999
   Position = MainFormCenter
-  StyleLookup = 'pushpanel'
   WindowState = wsMaximized
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object Expander1: TExpander
+  object Expander: TExpander
     Anchors = [akLeft, akTop, akBottom]
+    StyledSettings = [Family, Size, FontColor]
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
     Position.X = 8.000000000000000000
     Position.Y = 8.000000000000000000
     ShowCheck = False
     Size.Width = 177.000000000000000000
-    Size.Height = 642.000000000000000000
+    Size.Height = 714.000000000000000000
     Size.PlatformDefault = False
     Text = 'Menu'
     TabOrder = 2
-    ContentSize = '617'
-    object btnProjetos: TButton
+    OnDblClick = ExpanderDblClick
+    ContentSize = '689'
+    object sbProjects: TSpeedButton
+      StyledSettings = [Family, Size, FontColor]
       Position.X = 7.000000000000000000
       Position.Y = 40.000000000000000000
       Size.Width = 162.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 2
       Text = 'Projetos'
-      OnClick = btnProjetosClick
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Leading
+      OnClick = sbProjectsClick
     end
-    object btnRequisitos: TButton
+    object sbTasks: TSpeedButton
+      StyledSettings = [Family, Size, FontColor]
       Position.X = 7.000000000000000000
-      Position.Y = 87.000000000000000000
+      Position.Y = 73.000000000000000000
       Size.Width = 162.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 3
-      Text = 'Requisitos'
-      OnClick = btnRequisitosClick
-    end
-    object btnTarefas: TButton
-      Position.X = 7.000000000000000000
-      Position.Y = 136.000000000000000000
-      Size.Width = 162.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 1
       Text = 'Tarefas'
-      OnClick = btnTarefasClick
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Leading
     end
-    object btnAttachments: TButton
+    object sbAttachs: TSpeedButton
+      StyledSettings = [Family, Size, FontColor]
       Position.X = 7.000000000000000000
-      Position.Y = 185.000000000000000000
+      Position.Y = 106.000000000000000000
       Size.Width = 162.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
       Text = 'Anexos'
-      OnClick = btnAttachmentsClick
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Leading
+      OnClick = sbAttachsClick
     end
-    object Label1: TLabel
+    object sbReqs: TSpeedButton
+      StyledSettings = [Family, Size, FontColor]
       Position.X = 7.000000000000000000
-      Position.Y = 15.000000000000000000
-      Text = 'Gest'#227'o des rojetos'
-      TabOrder = 4
+      Position.Y = 7.000000000000000000
+      Size.Width = 162.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Requisitos'
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Leading
+      OnClick = sbReqsClick
     end
   end
   object FDConnection: TFDConnection
