@@ -33,6 +33,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
+    procedure lvAttachmentsItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
   private
     { Private declarations }
     function IsFieldsValid: Boolean;
@@ -50,8 +52,23 @@ implementation
 {$R *.fmx}
 
 procedure TFrmProjRegister.btnCancelClick(Sender: TObject);
+var
+  I: Integer;
+  LItem: TListViewItem;
+
 begin
-  Close;
+  //Close;
+  lvAttachments.BeginUpdate;
+  try
+    for I := 1 to 10 do
+    begin
+      LItem := lvAttachments.Items.Add;
+      LItem.Text := 'Nº ' + IntToStr(I);
+    end;
+  finally
+    lvAttachments.EndUpdate;
+  end;
+
 end;
 
 procedure TFrmProjRegister.btnSaveClick(Sender: TObject);
@@ -205,6 +222,12 @@ begin
     ShowMessage('Informe um valor entre 15 a 5000 caracteres para campo corpo ou descrição do projeto!');
     Result := False;
   end;
+end;
+
+procedure TFrmProjRegister.lvAttachmentsItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+  ShowMessage(AItem.Text);
 end;
 
 end.

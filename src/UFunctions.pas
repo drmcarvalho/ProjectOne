@@ -10,9 +10,25 @@ function ProjectStatusToSpellOut(const status: string): string;
 function RequerimentTypeToSpellOut(const vType: string): string;
 function RequerimentStatusToSpellOut(const status: string): string;
 function RequerimentActiveToSpellOut(const vActive: integer): string;
+function TaskStatusToSpellOut(const status: string): string;
 function PathOfExecutable: string;
 
 implementation
+
+function TaskStatusToSpellOut(const status: string): string;
+begin
+  case IndexStr(AnsiString(status), [AnsiString('AF'), AnsiString('F'),
+      AnsiString('FT'), AnsiString('T'), AnsiString('C')]) of
+    0: Result := 'A fazer';
+    1: Result := 'Fazendo';
+    2: Result := 'Feito';
+    3: Result := 'Em teste';
+    4: Result := 'Cancelado';
+  else
+    Result := 'Status inderteminado';
+  end
+end;
+
 
 function RequerimentStatusToSpellOut(const status: string): string;
 begin

@@ -11,8 +11,10 @@ object FrmTaskShow: TFrmTaskShow
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   DesignerMasterStyle = 0
-  object StringGrid: TStringGrid
+  object sgTasks: TStringGrid
     CanFocus = True
     ClipChildren = True
     Locked = True
@@ -54,6 +56,7 @@ object FrmTaskShow: TFrmTaskShow
     Position.Y = 56.000000000000000000
     TabOrder = 3
     Text = 'Pesquisar'
+    OnClick = btnSearchClick
   end
   object btnNewTask: TButton
     Position.X = 924.000000000000000000
@@ -68,7 +71,7 @@ object FrmTaskShow: TFrmTaskShow
     TabOrder = 2
     Text = 'Atualizar'
   end
-  object Edit1: TEdit
+  object edtSearch: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     TabOrder = 6
     Position.X = 96.000000000000000000
@@ -76,6 +79,7 @@ object FrmTaskShow: TFrmTaskShow
     Size.Width = 732.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
+    OnKeyUp = edtSearchKeyUp
   end
   object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
     Left = 464

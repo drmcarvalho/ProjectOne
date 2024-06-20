@@ -58,8 +58,8 @@ object FrmReqShow: TFrmReqShow
     TabOrder = 11
     Options = [ColumnResize, ColumnMove, ColLines, RowLines, Tabs, Header, HeaderClick, AutoDisplacement]
     OnSelectCell = sgRequerimentsSelectCell
-    Viewport.Width = 1126.000000000000000000
-    Viewport.Height = 344.000000000000000000
+    Viewport.Width = 1146.000000000000000000
+    Viewport.Height = 369.000000000000000000
     object icRequerimentId: TIntegerColumn
       Header = 'C'#243'digo'
       ReadOnly = True

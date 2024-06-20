@@ -62,8 +62,8 @@ object FrmProjRegister: TFrmProjRegister
     Size.Height = 271.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 7
-    Viewport.Width = 608.000000000000000000
-    Viewport.Height = 271.000000000000000000
+    Viewport.Width = 604.000000000000000000
+    Viewport.Height = 267.000000000000000000
   end
   object cbStatus: TComboBox
     Position.X = 368.000000000000000000
@@ -90,6 +90,7 @@ object FrmProjRegister: TFrmProjRegister
     Size.Height = 89.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 16
+    OnItemClick = lvAttachmentsItemClick
   end
   object FDConnection: TFDConnection
     Left = 288

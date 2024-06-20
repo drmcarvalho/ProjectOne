@@ -93,8 +93,8 @@ object FrmReqRegister: TFrmReqRegister
     Size.Height = 232.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 11
-    Viewport.Width = 737.000000000000000000
-    Viewport.Height = 228.000000000000000000
+    Viewport.Width = 741.000000000000000000
+    Viewport.Height = 232.000000000000000000
   end
   object btnSave: TButton
     Position.X = 556.000000000000000000
