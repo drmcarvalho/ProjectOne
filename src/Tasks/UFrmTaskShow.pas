@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.FMXUI.Wait, Data.DB, FireDAC.Comp.Client, FireDAC.Phys.SQLite,
-  FMX.Edit, UFunctions, UConstants;
+  FMX.Edit, UFunctions, UConstants, UFrmTaskRegister;
 
 type
   TFrmTaskShow = class(TForm)
@@ -91,8 +91,11 @@ begin
 end;
 
 procedure TFrmTaskShow.btnNewTaskClick(Sender: TObject);
+var frmNewTask: TFrmNewTask;
 begin
-//
+  frmNewTask := TFrmNewTask.Create(Self);
+  frmNewTask.ShowModal;
+  FreeAndNil(frmNewTask);
 end;
 
 procedure TFrmTaskShow.btnSearchClick(Sender: TObject);

@@ -9,7 +9,7 @@ uses
   UFrmTaskShow in 'Tasks\UFrmTaskShow.pas' {FrmTaskShow},
   UFrmProjRegister in 'Projects\UFrmProjRegister.pas' {FrmProjRegister},
   UAttachments in 'Attachments\UAttachments.pas',
-  UFrmTaskRegister in 'Tasks\UFrmTaskRegister.pas' {Form5},
+  UFrmTaskRegister in 'Tasks\UFrmTaskRegister.pas' {FrmNewTask},
   UFrmProjShow in 'Projects\UFrmProjShow.pas' {FrmProjectShow},
   UFunctions in 'UFunctions.pas',
   UTranslate in 'UTranslate.pas',
@@ -25,7 +25,7 @@ begin
   Application.CreateForm(TFrmReqRegister, FrmReqRegister);
   Application.CreateForm(TFrmTaskShow, FrmTaskShow);
   Application.CreateForm(TFrmProjRegister, FrmProjRegister);
-  Application.CreateForm(TForm5, Form5);
+  Application.CreateForm(TFrmNewTask, FrmNewTask);
   Application.CreateForm(TFrmProjectShow, FrmProjectShow);
   Application.CreateForm(TForm1, Form1);
   Application.Run;

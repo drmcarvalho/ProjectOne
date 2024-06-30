@@ -76,7 +76,7 @@ object FrmTaskShow: TFrmTaskShow
     TabOrder = 6
     Position.X = 96.000000000000000000
     Position.Y = 56.000000000000000000
-    Size.Width = 732.000000000000000000
+    Size.Width = 466.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     OnKeyUp = edtSearchKeyUp

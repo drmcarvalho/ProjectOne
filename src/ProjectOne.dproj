@@ -213,7 +213,7 @@
         </DCCReference>
         <DCCReference Include="Attachments\UAttachments.pas"/>
         <DCCReference Include="Tasks\UFrmTaskRegister.pas">
-            <Form>Form5</Form>
+            <Form>FrmNewTask</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Projects\UFrmProjShow.pas">
