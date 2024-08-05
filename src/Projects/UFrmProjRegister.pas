@@ -57,7 +57,8 @@ var
   LItem: TListViewItem;
 
 begin
-  //Close;
+  Close;
+  {
   lvAttachments.BeginUpdate;
   try
     for I := 1 to 10 do
@@ -68,6 +69,7 @@ begin
   finally
     lvAttachments.EndUpdate;
   end;
+  }
 
 end;
 

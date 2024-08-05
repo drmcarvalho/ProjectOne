@@ -262,8 +262,6 @@ begin
     ShowMessage('Selecione um projeto!');
     Result := False;
   end;
-
-
   if not ((Length(edtTitle.Text) >= 3) and (Length(edtTitle.Text) <= 100)) then
   begin
     ShowMessage('Informe um valor entre 3 a 100 caracteres para o campo título!');

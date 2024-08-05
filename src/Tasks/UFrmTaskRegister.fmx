@@ -3,7 +3,7 @@ object FrmNewTask: TFrmNewTask
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Nova tarefa'
-  ClientHeight = 471
+  ClientHeight = 485
   ClientWidth = 755
   Fill.Kind = Solid
   Position = ScreenCenter
@@ -16,11 +16,11 @@ object FrmNewTask: TFrmNewTask
     Position.X = 16.000000000000000000
     Position.Y = 48.000000000000000000
     Text = 'Titulo'
-    TabOrder = 0
+    TabOrder = 2
   end
   object edtTitle: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 1
+    TabOrder = 3
     Position.X = 16.000000000000000000
     Position.Y = 73.000000000000000000
     Size.Width = 721.000000000000000000
@@ -34,7 +34,7 @@ object FrmNewTask: TFrmNewTask
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Requisito'
-    TabOrder = 2
+    TabOrder = 4
   end
   object cbRequirement: TComboBox
     Position.X = 352.000000000000000000
@@ -42,7 +42,7 @@ object FrmNewTask: TFrmNewTask
     Size.Width = 385.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 3
+    TabOrder = 5
   end
   object Label3: TLabel
     Position.X = 16.000000000000000000
@@ -51,7 +51,7 @@ object FrmNewTask: TFrmNewTask
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Projeto'
-    TabOrder = 4
+    TabOrder = 6
   end
   object cbProject: TComboBox
     Position.X = 16.000000000000000000
@@ -59,7 +59,8 @@ object FrmNewTask: TFrmNewTask
     Size.Width = 329.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 5
+    TabOrder = 7
+    OnChange = cbProjectChange
   end
   object Label4: TLabel
     Position.X = 16.000000000000000000
@@ -68,7 +69,7 @@ object FrmNewTask: TFrmNewTask
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Descri'#231#227'o detalhada da tarefa'
-    TabOrder = 6
+    TabOrder = 8
   end
   object memoDescription: TMemo
     Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
@@ -79,7 +80,7 @@ object FrmNewTask: TFrmNewTask
     Size.Width = 721.000000000000000000
     Size.Height = 179.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 7
+    TabOrder = 9
     Viewport.Width = 717.000000000000000000
     Viewport.Height = 175.000000000000000000
   end
@@ -87,7 +88,7 @@ object FrmNewTask: TFrmNewTask
     Position.X = 16.000000000000000000
     Position.Y = 158.000000000000000000
     Text = 'Status'
-    TabOrder = 8
+    TabOrder = 10
   end
   object cbStatus: TComboBox
     Position.X = 16.000000000000000000
@@ -95,7 +96,21 @@ object FrmNewTask: TFrmNewTask
     Size.Width = 329.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 9
+    TabOrder = 11
+  end
+  object btnSave: TButton
+    Position.X = 548.000000000000000000
+    Position.Y = 441.000000000000000000
+    TabOrder = 0
+    Text = 'Salvar'
+    OnClick = btnSaveClick
+  end
+  object btnCancel: TButton
+    Position.X = 657.000000000000000000
+    Position.Y = 441.000000000000000000
+    TabOrder = 1
+    Text = 'Cancelar'
+    OnClick = btnCancelClick
   end
   object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
     Left = 600
